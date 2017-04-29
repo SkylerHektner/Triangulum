@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 35e49a753ec85fd4085e86f160145a1d
+timeCreated: 1493436965
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - waveNotifier: {fileID: 1005446856940424, guid: 3cbb1cb90ab7682498ae0994cad2d793,
+      type: 2}
+  - enemy: {fileID: 1817695667933200, guid: 97e9b911d95672242902de6b3fdffc9f, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

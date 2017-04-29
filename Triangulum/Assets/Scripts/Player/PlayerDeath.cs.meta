@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8774a4c517d41244985862d68e09dd80
+timeCreated: 1493399767
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - deathCanvas: {fileID: 1921331612630134, guid: 81634d7f01aad034387e48df6d20e610,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,54 @@
+=============== 
+Unity generated
+===============
+Temp/
+Library/
+
+=====================================
+Visual Studio / MonoDevelop generated
+=====================================
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+*.csproj
+
+============
+OS generated
+============
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+===========
+Build
+===========
+Bin/
+bin/
+
+===========
+DLL
+===========
+!*.dll
+!*.obj
+Assets/Resources/Models/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat
+Assets/Resources/Models/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat.meta
+Assets/Art and Stuff/Materials/UV_BuildingFrame_Pyramid1_DTG_group236_UV_BuildingFrame_Pyramid1_DTG_pasted__group89_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__group87_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__pasted__pCube14_UV_BuildingFrame_Pyramid1_DTG_polySurface1Mat.mat
+Assets/Art and Stuff/Materials/UV_BuildingFrame_Pyramid1_DTG_group236_UV_BuildingFrame_Pyramid1_DTG_pasted__group89_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__group87_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__pasted__pCube14_UV_BuildingFrame_Pyramid1_DTG_polySurface1Mat.mat.meta
+Assets/Materials/UV_BuildingFrame_Pyramid1_DTG_group236_UV_BuildingFrame_Pyramid1_DTG_pasted__group89_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__group87_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__pasted__pCube14_UV_BuildingFrame_Pyramid1_DTG_polySurface1Mat.mat
+Assets/Materials/UV_BuildingFrame_Pyramid1_DTG_group236_UV_BuildingFrame_Pyramid1_DTG_pasted__group89_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__group87_UV_BuildingFrame_Pyramid1_DTG_pasted__pasted__pasted__pCube14_UV_BuildingFrame_Pyramid1_DTG_polySurface1Mat.mat.meta
+Assets/Resources/Models/Environment/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat
+Assets/Resources/Models/Environment/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat.meta
+Assets/Resources/Meshes/Environment/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat
+Assets/Resources/Meshes/Environment/Facades/Materials/pasted__pasted__pasted__pasted__pasted__pCube14_pasted__pasted__pasted__pasted__group91_pasted__pasted__pasted__group93_pasted__pasted__group97_pasted__group110_group238Mat.mat.meta
