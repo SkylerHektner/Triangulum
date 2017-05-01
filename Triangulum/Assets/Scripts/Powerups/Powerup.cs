@@ -6,6 +6,8 @@ public abstract class Powerup : MonoBehaviour {
 
     public static IEnumerator curDelayCycle;
 
+    public float duration;
+
 	void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
@@ -17,12 +19,16 @@ public abstract class Powerup : MonoBehaviour {
 
     public virtual void OnUse()
     {
-
+        if (curDelayCycle != null)
+            StopCoroutine(curDelayCycle);
+        curDelayCycle = delay(duration);
+        StartCoroutine(curDelayCycle);
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     public virtual void OnEnd()
     {
-        
+        Destroy(gameObject);
     }
 
     public IEnumerator delay(float time)

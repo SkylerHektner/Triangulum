@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 06e150e93482bae41a6b8895a356bb23
-timeCreated: 1493536034
+guid: c8ccea83c825019429611689e5cda6ec
+timeCreated: 1493536208
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - newBoardSprite: {fileID: 21300000, guid: 670528414ecb4e740bd1f89c6fd4fc02, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

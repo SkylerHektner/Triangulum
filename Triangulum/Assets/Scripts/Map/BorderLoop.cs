@@ -7,7 +7,6 @@ public class BorderLoop : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("They Left Me");
         if (col.gameObject.tag == "Player")
         { 
             loopPlayer(col.gameObject);
