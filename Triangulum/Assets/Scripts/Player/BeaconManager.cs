@@ -60,7 +60,7 @@ public class BeaconManager : MonoBehaviour {
         b.transform.localPosition = transform.parent.localPosition;
 
         // adjust the line render settings
-        lineRenderer.numPositions = 2;
+        lineRenderer.positionCount = 2;
         Vector3 temp = new Vector3(transform.parent.localPosition.x, transform.parent.localPosition.y, -.1f);
         lineRenderer.SetPosition(1, temp);
 
@@ -75,7 +75,7 @@ public class BeaconManager : MonoBehaviour {
         b.transform.localPosition = transform.parent.localPosition;
 
         // adjust the line render settings
-        lineRenderer.numPositions = 4;
+        lineRenderer.positionCount = 4;
         Vector3 temp = new Vector3(transform.parent.localPosition.x, transform.parent.localPosition.y, -.1f);
         lineRenderer.SetPosition(2, temp);
         lineRenderer.SetPosition(3, temp);
@@ -100,6 +100,6 @@ public class BeaconManager : MonoBehaviour {
         beacons.Clear();
 
         // reset the lineRenderer
-        lineRenderer.numPositions = 1;
+        lineRenderer.positionCount = 1;
     }
 }

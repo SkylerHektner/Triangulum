@@ -13,6 +13,20 @@ public class LoopPowerUp : Powerup {
 
     public override void OnUse()
     {
+        // check of there is another loop running. If there is, end it. 
+        GameObject[] otherPower = GameObject.FindGameObjectsWithTag("Loop Power Up");
+
+        for (int i = 0; i < otherPower.Length; i++)
+        {
+            Powerup p = otherPower[i].GetComponent<Powerup>();
+            if (p.used)
+            {
+                p.OnEnd();
+                break;
+            }
+        }
+        
+        // switch out the board with the alternative graphic, enable looping on the boarder controller
         GameObject c = GameObject.Find("Survival Board");
         c.GetComponent<EdgeCollider2D>().enabled = false;
         oldBoardSprite = c.GetComponent<SpriteRenderer>().sprite;
@@ -22,6 +36,7 @@ public class LoopPowerUp : Powerup {
 
     public override void OnEnd()
     {
+        // revert changes in OnUse
         GameObject c = GameObject.Find("Survival Board");
         c.GetComponent<EdgeCollider2D>().enabled = true;
         c.GetComponent<SpriteRenderer>().sprite = oldBoardSprite;
