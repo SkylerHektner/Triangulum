@@ -17,8 +17,11 @@ public class SpeedPowerUp : Powerup {
     public override void OnEnd()
     {
         GameObject c = GameObject.FindWithTag("Player");
-        c.GetComponent<PlayerMovement>().speed /= speedMultiplier;
-        c.GetComponent<PlayerMovement>().acceleration /= speedMultiplier;
+        if (c != null)
+        {
+            c.GetComponent<PlayerMovement>().speed /= speedMultiplier;
+            c.GetComponent<PlayerMovement>().acceleration /= speedMultiplier;
+        }
         base.OnEnd();
     }
 }
