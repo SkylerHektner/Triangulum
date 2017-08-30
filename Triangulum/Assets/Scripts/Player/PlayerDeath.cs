@@ -7,6 +7,11 @@ public class PlayerDeath : MonoBehaviour {
 
     public GameObject deathCanvas;
 
+    /// <summary>
+    /// determins if you disable the wave manager when the player dies
+    /// </summary>
+    public bool disableWaveManagerOnDeath = true;
+
 	void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.tag == "Enemy")
@@ -19,5 +24,9 @@ public class PlayerDeath : MonoBehaviour {
     {
         Destroy(gameObject);
         Instantiate(deathCanvas);
+        if (disableWaveManagerOnDeath)
+        {
+            GameObject.Find("WaveManager").SetActive(false);
+        }
     }
 }
