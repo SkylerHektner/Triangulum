@@ -18,23 +18,6 @@ public class PlayerMovement : MonoBehaviour {
     /// </summary>
     public float acceleration = 100f;
 
-    /// <summary>
-    /// The cooldown for the players teleport ability
-    /// </summary>
-    public float teleportCooldown = 5f;
-
-    /// <summary>
-    /// used to disabled or enable teleporting
-    /// </summary>
-    public bool teleportAllowed = true;
-
-
-    /// <summary>
-    /// used to detect if the teleport is currently on cooldown
-    /// </summary>
-    private bool canTeleport = true;
-
-
     // privates
     private Rigidbody2D body;
 
@@ -45,27 +28,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void Update ()
     {
-        if (canTeleport && teleportAllowed && Input.GetButtonDown("Teleport")) // teleport
-        {
-            Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            body.MovePosition(point);
-            StartCoroutine(teleCooldownTimer());
-        }
-
         // tell the rigidBody to update the position based on the movement detected
         if (body.velocity.magnitude < speed)
             body.AddForce(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * acceleration, 
                 Input.GetAxis("Vertical") * Time.deltaTime * acceleration));
-    }
-
-    /// <summary>
-    /// Used to control the cooldown on the teleporter
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator teleCooldownTimer()
-    {
-        canTeleport = false;
-        yield return new WaitForSeconds(teleportCooldown);
-        canTeleport = true;
     }
 }
