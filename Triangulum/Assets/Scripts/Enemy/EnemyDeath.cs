@@ -24,13 +24,23 @@ public class EnemyDeath : MonoBehaviour {
     /// </summary>
     public int dropChance = 10;
 
+    /// <summary>
+    /// used to keep track of if the enemy has already died once, ensuring no double loot drops
+    /// </summary>
+    private bool dead = false;
+
     public void Die()
     {
-        // disable the collider and follow script so the player cannot still die to the mob
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        gameObject.GetComponent<ChasePlayer>().enabled = false;
-        // start the death animation
-        StartCoroutine(DeathCoRoutine());
+        if (!dead)
+        {
+            // set dead = true so we know Die() has already been called and can't be called again
+            dead = true;
+            // disable the collider and follow script so the player cannot still die to the mob
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<ChasePlayer>().enabled = false;
+            // start the death animation
+            StartCoroutine(DeathCoRoutine());
+        }
     }
 
     /// <summary>
