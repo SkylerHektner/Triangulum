@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour {
     /// </summary>
     public float acceleration = 100f;
 
+    /// <summary>
+    /// used to know if the character has been accelerated by the Speed Power Up
+    /// </summary>
+    public bool accelerated = false;
+
     // privates
     private Rigidbody2D body;
 

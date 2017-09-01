@@ -22,9 +22,6 @@ public abstract class Powerup : MonoBehaviour {
     {
         if (collider.gameObject.tag == "Player")
         {
-			// Make the powerup invisible and have no collider
-            GetComponent<SpriteRenderer>().enabled = false;
-			GetComponent<CircleCollider2D>().enabled = false;
 			// call OnUse 
             OnUse();
         }
@@ -34,7 +31,10 @@ public abstract class Powerup : MonoBehaviour {
     /// called when the powerup is used
     /// </summary>
     public virtual void OnUse()
-    {
+    { 
+        // Make the powerup invisible and have no collider
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
         // start the delay coroutine
         StartCoroutine(delay(duration));
         used = true;

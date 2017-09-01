@@ -11,35 +11,43 @@ public class LoopPowerUp : Powerup {
 
     private Sprite oldBoardSprite;
 
+    private GameObject survivalBoard;
+
+    void Start()
+    {
+        survivalBoard = GameObject.Find("Survival Board");
+    }
+
     public override void OnUse()
     {
-        // check of there is another loop running. If there is, end it. 
-        GameObject[] otherPower = GameObject.FindGameObjectsWithTag("Loop Power Up");
-
-        for (int i = 0; i < otherPower.Length; i++)
+        // if for any reason survival board is null, get a new pointer to it.
+        if (survivalBoard == null)
         {
-            Powerup p = otherPower[i].GetComponent<Powerup>();
-            if (p.used)
-            {
-                p.OnEnd();
-                break;
-            }
+            survivalBoard = GameObject.Find("Survival Board");
         }
-        
-        // switch out the board with the alternative graphic, enable looping on the boarder controller
-        GameObject c = GameObject.Find("Survival Board");
-        c.GetComponent<EdgeCollider2D>().enabled = false;
-        oldBoardSprite = c.GetComponent<SpriteRenderer>().sprite;
-        c.GetComponent<SpriteRenderer>().sprite = newBoardSprite;
-        base.OnUse();
+
+        // only allow use of the power if another loop power hasn't already been used
+        if (survivalBoard.GetComponent<EdgeCollider2D>().enabled)
+        {
+            // switch out the board with the alternative graphic, enable looping on the boarder controller
+            survivalBoard.GetComponent<EdgeCollider2D>().enabled = false;
+            oldBoardSprite = survivalBoard.GetComponent<SpriteRenderer>().sprite;
+            survivalBoard.GetComponent<SpriteRenderer>().sprite = newBoardSprite;
+            base.OnUse();
+        }
     }
 
     public override void OnEnd()
     {
+        // if for any reason survival board is null, get a new pointer to it.
+        if (survivalBoard == null)
+        {
+            survivalBoard = GameObject.Find("Survival Board");
+        }
+
         // revert changes in OnUse
-        GameObject c = GameObject.Find("Survival Board");
-        c.GetComponent<EdgeCollider2D>().enabled = true;
-        c.GetComponent<SpriteRenderer>().sprite = oldBoardSprite;
+        survivalBoard.GetComponent<EdgeCollider2D>().enabled = true;
+        survivalBoard.GetComponent<SpriteRenderer>().sprite = oldBoardSprite;
         base.OnEnd();
     }
 }
