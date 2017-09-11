@@ -25,6 +25,11 @@ public class EnemyDeath : MonoBehaviour {
     public int dropChance = 10;
 
     /// <summary>
+    /// The base score value of the enemy
+    /// </summary>
+    public float baseScoreValue = 1;
+
+    /// <summary>
     /// used to keep track of if the enemy has already died once, ensuring no double loot drops
     /// </summary>
     private bool dead = false;
@@ -38,6 +43,8 @@ public class EnemyDeath : MonoBehaviour {
             // disable the collider and follow script so the player cannot still die to the mob
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<ChasePlayer>().enabled = false;
+            // Tell the score manager to add score
+            ScoreManager.Instance.addScore(baseScoreValue);
             // start the death animation
             StartCoroutine(DeathCoRoutine());
         }
