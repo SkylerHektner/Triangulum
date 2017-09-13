@@ -28,5 +28,13 @@ public class PlayerDeath : MonoBehaviour {
         {
             GameObject.Find("WaveManager").SetActive(false);
         }
+
+        // find an kill all drones just for thorougness sake
+        GameObject[] drones;
+        drones = GameObject.FindGameObjectsWithTag("Drone");
+        for (int i = 0; i < drones.Length; i++)
+        {
+            Destroy(drones[i]);
+        }
     }
 }
