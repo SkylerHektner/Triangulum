@@ -6,6 +6,8 @@ public class DronePowerUp : Powerup {
 
     public int numDrones = 1;
 
+    public float laserCoolDown = 2;
+
     // MUST BE ASSIGNED TO DRONE PREFAB
     public GameObject drone;
 
@@ -29,6 +31,7 @@ public class DronePowerUp : Powerup {
                 Mathf.Cos(Mathf.Deg2Rad * i * radialDeviance), 0);
             d.transform.localPosition = d.transform.localPosition + placementVec.normalized * 3;
             d.GetComponent<Orbit>().center = playerTransform;
+            d.GetComponent<FireLaserAtEnemy>().coolDown = laserCoolDown;
         }
 
         base.OnUse();

@@ -22,13 +22,6 @@ public class PlayerDeath : MonoBehaviour {
 
     private void Die()
     {
-        Destroy(gameObject);
-        Instantiate(deathCanvas);
-        if (disableWaveManagerOnDeath)
-        {
-            GameObject.Find("WaveManager").SetActive(false);
-        }
-
         // find an kill all drones just for thorougness sake
         GameObject[] drones;
         drones = GameObject.FindGameObjectsWithTag("Drone");
@@ -36,5 +29,15 @@ public class PlayerDeath : MonoBehaviour {
         {
             Destroy(drones[i]);
         }
+
+        // Destroy the player 
+        Destroy(gameObject);
+        Instantiate(deathCanvas);
+        if (disableWaveManagerOnDeath)
+        {
+            GameObject.Find("WaveManager").SetActive(false);
+        }
+
+        
     }
 }
