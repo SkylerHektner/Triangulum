@@ -26,9 +26,12 @@ public class PlayerMovement : MonoBehaviour {
     // privates
     private Rigidbody2D body;
 
+    private Vector3 prevPosition;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        prevPosition = transform.localPosition;
     }
 	
 	void Update ()
@@ -37,5 +40,10 @@ public class PlayerMovement : MonoBehaviour {
         if (body.velocity.magnitude < speed)
             body.AddForce(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * acceleration, 
                 Input.GetAxis("Vertical") * Time.deltaTime * acceleration));
+
+        // rotate the character to face their direction of movement
+        Vector3 facing = transform.localPosition - prevPosition;
+        transform.up = Vector3.Lerp(facing, transform.up, Time.deltaTime);
+        prevPosition = transform.localPosition;
     }
 }

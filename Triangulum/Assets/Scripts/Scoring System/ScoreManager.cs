@@ -33,8 +33,6 @@ public class ScoreManager : MonoBehaviour {
         HUDManager.Instance.setScore(score);
         HUDManager.Instance.setMultiplier(multiplier);
 
-        Debug.Log(scoreGained);
-
         return scoreGained;
     }
 }
