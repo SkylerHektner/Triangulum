@@ -16,9 +16,8 @@ public class HUDManager : MonoBehaviour {
 
     private Text scoreText;
     private Text multiplierText;
-    private List<GameObject> powerUpDurationTimers = new List<GameObject>();
+    private List<GameObject> powerUpTimers = new List<GameObject>();
 
-	// Use this for initialization
 	void Start () {
         Instance = this;
 
@@ -29,7 +28,7 @@ public class HUDManager : MonoBehaviour {
     void Update()
     {
         // check if any power up timers have expired
-        if (powerUpDurationTimers.Contains(null))
+        if (powerUpTimers.Contains(null))
         {
             positionPowerUpTimers();
         }
@@ -48,7 +47,7 @@ public class HUDManager : MonoBehaviour {
         // set the time till the object removes itself
         t.GetComponent<RemoveSelf>().timeTillRemove = Duration;
         // add the object to the list of timers
-        powerUpDurationTimers.Add(t);
+        powerUpTimers.Add(t);
 
         // format the position of all timers
         positionPowerUpTimers();
@@ -57,14 +56,14 @@ public class HUDManager : MonoBehaviour {
     // private function used to correctly position multiple power up timers and remove null ones
     private void positionPowerUpTimers()
     {
-        powerUpDurationTimers.Remove(null);
+        powerUpTimers.Remove(null);
 
         int offsetDelta = 80; // NEED TO FIND A WAY TO MAKE THIS DYNAMIC BASED ON RESOLUTION
         int curOffSet = 0;
 
-        for (int i = 0; i < powerUpDurationTimers.Count; i++)
+        for (int i = 0; i < powerUpTimers.Count; i++)
         {
-            GameObject t = powerUpDurationTimers[i];
+            GameObject t = powerUpTimers[i];
             RectTransform trans = t.GetComponent<RectTransform>();
             trans.offsetMax = new Vector2(0, -curOffSet);
             trans.offsetMin = new Vector2(0, -curOffSet);
@@ -73,11 +72,13 @@ public class HUDManager : MonoBehaviour {
         }
     }
 
+    // public function to set the score text of the HUD
     public void setScore(int s)
     {
         scoreText.text = s.ToString();
     }
 
+    // public function to set the multiplier text of the HUD
     public void setMultiplier(float f)
     {
         multiplierText.text = "x" + f.ToString();
