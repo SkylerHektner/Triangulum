@@ -22,7 +22,7 @@ public class LassoPowerUp : Powerup
         {
             man.lassoModeActive = true;
         }
-        
+        setHUDTimer();
         base.OnUse();
     }
 

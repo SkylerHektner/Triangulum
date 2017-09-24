@@ -50,7 +50,7 @@ public abstract class Powerup : MonoBehaviour {
 
     public void setHUDTimer()
     {
-        HUDManager.Instance.displayPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+        HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
     }
 
     /// <summary>

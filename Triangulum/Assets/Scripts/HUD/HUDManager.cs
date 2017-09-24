@@ -26,14 +26,20 @@ public class HUDManager : MonoBehaviour {
         multiplierText = transform.GetChild(0).Find("Score").Find("MultiplierText").GetComponent<Text>();
     }
 
-    public void displayPowerUpTimer(float Duration, Sprite powerUpImage)
+    void Update()
+    {
+        // check if any power up timers have expired
+        if (powerUpDurationTimers.Contains(null))
+        {
+            positionPowerUpTimers();
+        }
+    }
+
+    // public function used to instantiate a new power up timer
+    public void createPowerUpTimer(float Duration, Sprite powerUpImage)
     {
         GameObject t = GameObject.Instantiate(powerTimer);
         t.transform.SetParent(transform.GetChild(0));
-        RectTransform trans = t.GetComponent<RectTransform>();
-        trans.offsetMax = new Vector2(0, 0);
-        trans.offsetMin = new Vector2(0, 0);
-
         // set the duration of the powerup and the image to be displayed
         PowerUpTimer s = t.GetComponent<PowerUpTimer>();
 
@@ -43,6 +49,28 @@ public class HUDManager : MonoBehaviour {
         t.GetComponent<RemoveSelf>().timeTillRemove = Duration;
         // add the object to the list of timers
         powerUpDurationTimers.Add(t);
+
+        // format the position of all timers
+        positionPowerUpTimers();
+    }
+
+    // private function used to correctly position multiple power up timers and remove null ones
+    private void positionPowerUpTimers()
+    {
+        powerUpDurationTimers.Remove(null);
+
+        int offsetDelta = 80; // NEED TO FIND A WAY TO MAKE THIS DYNAMIC BASED ON RESOLUTION
+        int curOffSet = 0;
+
+        for (int i = 0; i < powerUpDurationTimers.Count; i++)
+        {
+            GameObject t = powerUpDurationTimers[i];
+            RectTransform trans = t.GetComponent<RectTransform>();
+            trans.offsetMax = new Vector2(0, -curOffSet);
+            trans.offsetMin = new Vector2(0, -curOffSet);
+            curOffSet += offsetDelta;
+
+        }
     }
 
     public void setScore(int s)

@@ -29,6 +29,7 @@ public class SpeedPowerUp : Powerup {
             movementScript.speed *= speedMultiplier;
             movementScript.acceleration *= speedMultiplier;
             movementScript.accelerated = true;
+            setHUDTimer();
             base.OnUse();
         }
     }
