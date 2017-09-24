@@ -21,6 +21,7 @@ public class upgradeLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // set the path to the upgrades Json and load the data contained or create a fresh data set
         path = Application.streamingAssetsPath + "/Upgrades.json";
         if (resetDataOnPlay)
         {
@@ -33,6 +34,17 @@ public class upgradeLoader : MonoBehaviour {
             jsonString = File.ReadAllText(path);
             data = JsonUtility.FromJson<UpgradeData>(jsonString);
         }
+
+        // adjust the player
+        try
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            adjustPlayer(p);
+        }
+        catch
+        {
+            Debug.LogError("You don't have a player in the scene you dummy!");
+        }
 	}
 
     public void SaveData()
@@ -42,6 +54,19 @@ public class upgradeLoader : MonoBehaviour {
         {
             file.WriteLine(jsonString);
         }
+    }
+
+    /// <summary>
+    /// Takes in the GameObject of the player and sets their default settings to what the JSON dictates
+    /// </summary>
+    /// <param name="player"></param>
+    public static void adjustPlayer(GameObject player)
+    {
+        PlayerDeath d = player.GetComponent<PlayerDeath>();
+        d.Health = data.Player_Health;
+        PlayerMovement m = player.GetComponent<PlayerMovement>();
+        m.speed = data.Player_Speed;
+        m.acceleration = data.Player_Acceleration;
     }
 
     /// <summary>
@@ -95,23 +120,23 @@ public class UpgradeData
     // POWER UPS
     // Drone Power Up
     public bool DronePower_Unlocked = true;
-    public float DronePower_DropChance = 1f;
+    public float DronePower_DropChance = .1f;
     public float DronePower_DroneDuration = 10;
     public int DronePower_NumDrones = 3;
     public float DronePower_DroneLaserCooldown = 2;
     // Laser Power Up
     public bool LaserPower_Unlocked = true;
-    public float LaserPower_DropChance = 1f;
+    public float LaserPower_DropChance = .1f;
     public int LaserPower_NumLasers = 60;
     public float LaserPower_LaserSpeed = 40;
     public float LaserPower_LaserDuration = 3;
     // Lasso Power Up
     public bool LassoPower_Unlocked = true;
-    public float LassoPower_DropChance = 1f;
+    public float LassoPower_DropChance = .1f;
     public float LassoPower_LassoDuration = 5;
     // Speed Power Up
     public bool SpeedPower_Unlocked = true;
-    public float SpeedPower_DropChance = 1f;
+    public float SpeedPower_DropChance = .1f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
 

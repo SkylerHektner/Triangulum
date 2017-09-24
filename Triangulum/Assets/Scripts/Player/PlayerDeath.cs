@@ -12,15 +12,26 @@ public class PlayerDeath : MonoBehaviour {
     /// </summary>
     public bool disableWaveManagerOnDeath = true;
 
+    public int Health;
+
 	void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.tag == "Enemy")
         {
-            Die();
+            takeDamage();
         }
     }
 
-    private void Die()
+    private void takeDamage()
+    {
+        Health -= 1;
+        if (Health == 0)
+        {
+            die();
+        }
+    }
+
+    private void die()
     {
         // find an kill all drones just for thorougness sake
         GameObject[] drones;
