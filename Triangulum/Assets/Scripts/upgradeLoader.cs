@@ -14,6 +14,9 @@ public class upgradeLoader : MonoBehaviour {
     /// </summary>
     public bool resetDataOnPlay = true;
 
+    /// <summary>
+    /// A public static accescable data class for all upgrade info
+    /// </summary>
     public static UpgradeData data;
 
 	// Use this for initialization
@@ -40,11 +43,51 @@ public class upgradeLoader : MonoBehaviour {
             file.WriteLine(jsonString);
         }
     }
+
+    /// <summary>
+    /// Takes in a powerUp GameObject and a string describing what power up it is taking in, then
+    /// applies data from the upgrade database to that powerup config.
+    /// </summary>
+    /// <param name="powerUp"></param>
+    /// <param name="power"></param>
+    public static void adjustPowerUp(GameObject powerUp, string power)
+    {
+        if (power == "Speed")
+        {
+            SpeedPowerUp s = powerUp.GetComponent<SpeedPowerUp>();
+            s.speedMultiplier = data.SpeedPower_Multiplier;
+            s.duration = data.SpeedPower_SpeedDuration;
+        }
+        else if (power == "Drone")
+        {
+            DronePowerUp d = powerUp.GetComponent<DronePowerUp>();
+            d.numDrones = data.DronePower_NumDrones;
+            d.duration = data.DronePower_DroneDuration;
+            d.laserCoolDown = data.DronePower_DroneLaserCooldown;
+        }
+        else if (power == "Laser")
+        {
+            LaserPowerUp l = powerUp.GetComponent<LaserPowerUp>();
+            l.numLasers = data.LaserPower_NumLasers;
+            l.laserExpirationTime = data.LaserPower_LaserDuration;
+            l.laserSpeed = data.LaserPower_LaserSpeed;
+        }
+        else if (power == "Lasso")
+        {
+            LassoPowerUp l = powerUp.GetComponent<LassoPowerUp>();
+            l.duration = data.LassoPower_LassoDuration;
+        }
+
+        else
+        {
+            Debug.LogError("You tried to modify a powerup that does not exist");
+        }
+    }
 	
 }
 
 /// <summary>
-/// In this class we hold all upgrade data for the character and also control default values.
+/// In this class we hold all upgrade data for the character and also set default values.
 /// </summary>
 [System.Serializable]
 public class UpgradeData
@@ -52,19 +95,23 @@ public class UpgradeData
     // POWER UPS
     // Drone Power Up
     public bool DronePower_Unlocked = true;
+    public float DronePower_DropChance = 1f;
     public float DronePower_DroneDuration = 10;
-    public float DronePower_NumDrones = 3;
+    public int DronePower_NumDrones = 3;
     public float DronePower_DroneLaserCooldown = 2;
     // Laser Power Up
     public bool LaserPower_Unlocked = true;
+    public float LaserPower_DropChance = 1f;
     public int LaserPower_NumLasers = 60;
     public float LaserPower_LaserSpeed = 40;
     public float LaserPower_LaserDuration = 3;
     // Lasso Power Up
     public bool LassoPower_Unlocked = true;
+    public float LassoPower_DropChance = 1f;
     public float LassoPower_LassoDuration = 5;
     // Speed Power Up
     public bool SpeedPower_Unlocked = true;
+    public float SpeedPower_DropChance = 1f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
 

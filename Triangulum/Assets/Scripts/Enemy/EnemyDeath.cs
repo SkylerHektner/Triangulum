@@ -15,19 +15,15 @@ public class EnemyDeath : MonoBehaviour {
     public Sprite[] deathFrames;
 
     /// <summary>
-    /// Dropable Powerups List
-    /// </summary>
-    public GameObject[] Drops;
-
-    /// <summary>
-    /// Drop Chance 0%-100%
-    /// </summary>
-    public int dropChance = 10;
-
-    /// <summary>
     /// The base score value of the enemy
     /// </summary>
     public float baseScoreValue = 1;
+
+    // pointers to all powerup prefabs
+    public GameObject SpeedPower;
+    public GameObject LassoPower;
+    public GameObject LaserPower;
+    public GameObject DronePower;
 
     /// <summary>
     /// used to keep track of if the enemy has already died once, ensuring no double loot drops
@@ -67,16 +63,45 @@ public class EnemyDeath : MonoBehaviour {
             yield return new WaitForSeconds(f);
         }
 
-        // spawn a powerup if you have one
-        if (Drops != null)
+        // try to spawn powerups
+        if (upgradeLoader.data.SpeedPower_Unlocked)
         {
-            if (Random.Range(0, 100) < dropChance)
+            if (Random.value < upgradeLoader.data.SpeedPower_DropChance)
             {
-                // select a random drop
-                GameObject p = Drops[Random.Range(0, Drops.Length)];
-                // instantiate that game object at the location of death
-                p = GameObject.Instantiate(p);
+                GameObject p = GameObject.Instantiate(SpeedPower);
                 p.transform.localPosition = transform.localPosition;
+                p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
+                upgradeLoader.adjustPowerUp(p, "Speed");
+            }
+        }
+        if (upgradeLoader.data.LassoPower_Unlocked)
+        {
+            if (Random.value < upgradeLoader.data.LassoPower_DropChance)
+            {
+                GameObject p = GameObject.Instantiate(LassoPower);
+                p.transform.localPosition = transform.localPosition;
+                p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
+                upgradeLoader.adjustPowerUp(p, "Lasso");
+            }
+        }
+        if (upgradeLoader.data.LaserPower_Unlocked)
+        {
+            if (Random.value < upgradeLoader.data.LaserPower_DropChance)
+            {
+                GameObject p = GameObject.Instantiate(LaserPower);
+                p.transform.localPosition = transform.localPosition;
+                p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
+                upgradeLoader.adjustPowerUp(p, "Laser");
+            }
+        }
+        if (upgradeLoader.data.DronePower_Unlocked)
+        {
+            if (Random.value < upgradeLoader.data.DronePower_DropChance)
+            {
+                GameObject p = GameObject.Instantiate(DronePower);
+                p.transform.localPosition = transform.localPosition;
+                p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
+                upgradeLoader.adjustPowerUp(p, "Drone");
             }
         }
 
