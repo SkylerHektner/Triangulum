@@ -48,6 +48,11 @@ public abstract class Powerup : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    public void setHUDTimer()
+    {
+        HUDManager.Instance.displayPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+    }
+
     /// <summary>
     /// the coroutine for the delay cycle on the powerup
     /// </summary>

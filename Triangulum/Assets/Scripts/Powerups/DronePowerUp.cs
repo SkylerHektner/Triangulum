@@ -34,6 +34,7 @@ public class DronePowerUp : Powerup {
             d.GetComponent<FireLaserAtEnemy>().coolDown = laserCoolDown;
         }
 
+        setHUDTimer();
         base.OnUse();
     }
 
