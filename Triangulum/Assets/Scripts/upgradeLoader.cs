@@ -102,6 +102,13 @@ public class upgradeLoader : MonoBehaviour {
             LassoPowerUp l = powerUp.GetComponent<LassoPowerUp>();
             l.duration = data.LassoPower_LassoDuration;
         }
+        else if (power == "Ice")
+        {
+            IcePowerUp i = powerUp.GetComponent<IcePowerUp>();
+            i.freezeExpansionTime = data.IcePower_ExpansionTime;
+            i.freezeRadius = data.IcePower_Radius;
+            i.freezeDuration = data.IcePower_FreezeDuration;
+        }
 
         else
         {
@@ -139,6 +146,12 @@ public class UpgradeData
     public float SpeedPower_DropChance = .1f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
+    // ice Power Up
+    public bool IcePower_Unlocked = true;
+    public float IcePower_DropChance = .1f;
+    public float IcePower_Radius = 60;
+    public float IcePower_ExpansionTime = 1;
+    public float IcePower_FreezeDuration = 5;
 
     // CHARACTER UPGRADES
     // health

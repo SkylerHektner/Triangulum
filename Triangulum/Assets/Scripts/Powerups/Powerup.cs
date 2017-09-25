@@ -53,6 +53,11 @@ public abstract class Powerup : MonoBehaviour {
         HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
     }
 
+    public void setHUDTimer(float duration)
+    {
+        HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+    }
+
     /// <summary>
     /// the coroutine for the delay cycle on the powerup
     /// </summary>
