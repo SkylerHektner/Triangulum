@@ -146,12 +146,17 @@ public class UpgradeData
     public float SpeedPower_DropChance = .1f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
-    // ice Power Up
+    // Ice Power Up
     public bool IcePower_Unlocked = true;
     public float IcePower_DropChance = .1f;
     public float IcePower_Radius = 60;
-    public float IcePower_ExpansionTime = 1;
     public float IcePower_FreezeDuration = 5;
+    // shield Power Up
+    public bool ShieldPower_Unlocked = true;
+    public float ShieldPower_DropChance = .1f;
+    public float ShieldPower_Duration = 5;
+    public float ShieldPower_Radius = 3;
+
 
     // CHARACTER UPGRADES
     // health
@@ -166,4 +171,5 @@ public class UpgradeData
     public float Teleport_Cooldown = 10;
     public bool Teleport_Lethal = true;
     public float Teleport_LethalRadius = 10;
+    public int Teleport_Charges = 1;
 }
