@@ -150,6 +150,7 @@ public class UpgradeData
     public bool IcePower_Unlocked = true;
     public float IcePower_DropChance = .1f;
     public float IcePower_Radius = 60;
+    public float IcePower_ExpansionTime = .5f;
     public float IcePower_FreezeDuration = 5;
     // shield Power Up
     public bool ShieldPower_Unlocked = true;
