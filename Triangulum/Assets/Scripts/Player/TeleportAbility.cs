@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,19 @@ public class TeleportAbility : MonoBehaviour {
     /// <summary>
     /// The cooldown for the players teleport ability
     /// </summary>
-    public float teleportCooldown = 5f;
+    public float cooldown = 5f;
+
+    public bool lethal = false;
+
+    public float lethalRadius = 100;
+
+    public int charges = 1;
 
     /// <summary>
     /// used to detect if the teleport is currently on cooldown
     /// </summary>
     private bool canTeleport = true;
+    private float cooldownCharge = 0;
 
    // pointer to the characters rigid body
     private Rigidbody2D body;
@@ -20,26 +28,40 @@ public class TeleportAbility : MonoBehaviour {
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        cooldown = upgradeLoader.data.Teleport_Cooldown;
+        lethal = upgradeLoader.data.Teleport_Lethal;
+        lethalRadius = upgradeLoader.data.Teleport_LethalRadius;
+        charges = upgradeLoader.data.Teleport_Charges;
+        cooldownCharge = cooldown * charges;
     }
 
     public void Update()
     {
-        if (canTeleport && Input.GetButtonDown("Teleport")) // teleport
+        if (cooldownCharge < cooldown * charges) // charge their teleport
         {
+            cooldownCharge += Time.deltaTime;
+        }
+
+        if (cooldownCharge > cooldown && Input.GetButtonDown("Teleport")) // teleport
+        {
+            cooldownCharge -= cooldown;
             Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             body.MovePosition(point);
-            StartCoroutine(teleCooldownTimer());
+            if (lethal)
+            {
+                spawnKillPad(point);
+            }
         }
     }
 
-    /// <summary>
-    /// Used to control the cooldown on the teleporter
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator teleCooldownTimer()
+    // Spawns in a gameobject to kill enemies in the lethal radius and automatically removes itself after .1 seconds
+    private void spawnKillPad(Vector2 point)
     {
-        canTeleport = false;
-        yield return new WaitForSeconds(teleportCooldown);
-        canTeleport = true;
+        GameObject k = new GameObject();
+        k.AddComponent<RemoveSelf>().timeTillRemove = .1f;
+        k.AddComponent<CircleCollider2D>().radius = lethalRadius;
+        k.GetComponent<CircleCollider2D>().isTrigger = true;
+        k.AddComponent<killCollidedEnemy>();
+        k.transform.localPosition = point;
     }
 }
