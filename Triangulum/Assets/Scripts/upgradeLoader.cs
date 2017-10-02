@@ -134,9 +134,9 @@ public class UpgradeData
     // Laser Power Up
     public bool LaserPower_Unlocked = true;
     public float LaserPower_DropChance = .1f;
-    public int LaserPower_NumLasers = 60;
-    public float LaserPower_LaserSpeed = 40;
-    public float LaserPower_LaserDuration = 3;
+    public int LaserPower_NumLasers = 20;
+    public float LaserPower_LaserSpeed = 60;
+    public float LaserPower_LaserDuration = 2;
     // Lasso Power Up
     public bool LassoPower_Unlocked = true;
     public float LassoPower_DropChance = .1f;

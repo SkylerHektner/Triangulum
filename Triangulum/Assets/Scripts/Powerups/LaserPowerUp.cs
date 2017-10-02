@@ -32,11 +32,13 @@ public class LaserPowerUp : Powerup
         {
             GameObject l = GameObject.Instantiate(laser);
             l.transform.localPosition = transform.localPosition;
-            l.transform.localRotation = Quaternion.Euler(0, 0, -i * radialDeviance);
+            l.transform.localRotation = Quaternion.Euler(0, 0, -i * radialDeviance + 90);
             l.GetComponent<FollowVector>().vec = new Vector3(
                 Mathf.Sin(Mathf.Deg2Rad * i * radialDeviance), Mathf.Cos(Mathf.Deg2Rad * i * radialDeviance), 0);
             l.GetComponent<FollowVector>().speed = laserSpeed;
             l.GetComponent<RemoveSelf>().timeTillRemove = laserExpirationTime;
+            Animate a = l.GetComponent<Animate>();
+            a.delayBetweenFrames = laserExpirationTime / a.frames.Length;
         }
         base.OnUse();
     }
