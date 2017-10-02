@@ -127,34 +127,34 @@ public class UpgradeData
     // POWER UPS
     // Drone Power Up
     public bool DronePower_Unlocked = true;
-    public float DronePower_DropChance = .1f;
+    public float DronePower_DropChance = .05f;
     public float DronePower_DroneDuration = 10;
     public int DronePower_NumDrones = 3;
     public float DronePower_DroneLaserCooldown = 2;
     // Laser Power Up
     public bool LaserPower_Unlocked = true;
-    public float LaserPower_DropChance = .1f;
+    public float LaserPower_DropChance = .05f;
     public int LaserPower_NumLasers = 20;
     public float LaserPower_LaserSpeed = 60;
     public float LaserPower_LaserDuration = 2;
     // Lasso Power Up
     public bool LassoPower_Unlocked = true;
-    public float LassoPower_DropChance = .1f;
+    public float LassoPower_DropChance = .05f;
     public float LassoPower_LassoDuration = 5;
     // Speed Power Up
     public bool SpeedPower_Unlocked = true;
-    public float SpeedPower_DropChance = .1f;
+    public float SpeedPower_DropChance = .05f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
     // Ice Power Up
     public bool IcePower_Unlocked = true;
-    public float IcePower_DropChance = .1f;
+    public float IcePower_DropChance = .05f;
     public float IcePower_Radius = 60;
     public float IcePower_ExpansionTime = .5f;
     public float IcePower_FreezeDuration = 5;
     // shield Power Up
     public bool ShieldPower_Unlocked = true;
-    public float ShieldPower_DropChance = .1f;
+    public float ShieldPower_DropChance = .05f;
     public float ShieldPower_Duration = 5;
     public float ShieldPower_Radius = 3;
 
