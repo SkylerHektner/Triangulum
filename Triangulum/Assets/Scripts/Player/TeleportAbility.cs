@@ -42,7 +42,7 @@ public class TeleportAbility : MonoBehaviour {
             cooldownCharge += Time.deltaTime;
         }
 
-        if (cooldownCharge > cooldown && Input.GetButtonDown("Teleport")) // teleport
+        if (cooldownCharge >= cooldown && upgradeLoader.data.Teleport_CanTeleport && Input.GetButtonDown("Teleport")) // teleport
         {
             cooldownCharge -= cooldown;
             Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -52,6 +52,7 @@ public class TeleportAbility : MonoBehaviour {
                 spawnKillPad(point);
             }
         }
+
     }
 
     // Spawns in a gameobject to kill enemies in the lethal radius and automatically removes itself after .1 seconds
