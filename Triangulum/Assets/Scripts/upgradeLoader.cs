@@ -109,6 +109,15 @@ public class upgradeLoader : MonoBehaviour {
             i.freezeRadius = data.IcePower_Radius;
             i.freezeDuration = data.IcePower_FreezeDuration;
         }
+        else if (power == "Shield")
+        {
+            ShieldPowerUp s = powerUp.GetComponent<ShieldPowerUp>();
+            s.durability = data.ShieldPower_Durability;
+            s.duration = data.ShieldPower_Duration;
+            s.radius = data.ShieldPower_Radius;
+            s.flickerDuration = data.ShieldPower_flickerDuration;
+            s.unbreakable = data.ShieldPower_Unbreakable;
+        }
 
         else
         {
@@ -156,7 +165,10 @@ public class UpgradeData
     public bool ShieldPower_Unlocked = true;
     public float ShieldPower_DropChance = .05f;
     public float ShieldPower_Duration = 5;
-    public float ShieldPower_Radius = 3;
+    public float ShieldPower_Radius = 6;
+    public int ShieldPower_Durability = 1;
+    public float ShieldPower_flickerDuration = 2f;
+    public bool ShieldPower_Unbreakable = false;
 
 
     // CHARACTER UPGRADES

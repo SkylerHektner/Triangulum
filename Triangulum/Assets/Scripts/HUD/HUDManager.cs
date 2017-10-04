@@ -34,8 +34,18 @@ public class HUDManager : MonoBehaviour {
         }
     }
 
+    // public function to remove the power up timer passed in before its duration expires
+    public void removePowerUpTimer(GameObject timer)
+    {
+        if (timer != null)
+        {
+            Destroy(timer);
+            positionPowerUpTimers();
+        }
+    }
+
     // public function used to instantiate a new power up timer
-    public void createPowerUpTimer(float Duration, Sprite powerUpImage)
+    public GameObject createPowerUpTimer(float Duration, Sprite powerUpImage)
     {
         GameObject t = GameObject.Instantiate(powerTimer);
         t.transform.SetParent(transform.GetChild(0));
@@ -51,6 +61,8 @@ public class HUDManager : MonoBehaviour {
 
         // format the position of all timers
         positionPowerUpTimers();
+
+        return t;
     }
 
     // private function used to correctly position multiple power up timers and remove null ones
