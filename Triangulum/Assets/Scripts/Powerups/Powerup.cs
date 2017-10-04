@@ -15,6 +15,11 @@ public abstract class Powerup : MonoBehaviour {
     public float duration;
 
     /// <summary>
+    /// becomes a reference to the powerUpTimer created
+    /// </summary>
+    private GameObject powerUpTimer;
+
+    /// <summary>
     /// Called when the player enters the active collider of a powerup
     /// </summary>
     /// <param name="collider"></param>
@@ -50,12 +55,17 @@ public abstract class Powerup : MonoBehaviour {
 
     public void setHUDTimer()
     {
-        HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+        powerUpTimer = HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
     }
 
     public void setHUDTimer(float duration)
     {
-        HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+        powerUpTimer = HUDManager.Instance.createPowerUpTimer(duration, gameObject.GetComponent<SpriteRenderer>().sprite);
+    }
+
+    public void removeHUDTimer()
+    {
+        HUDManager.Instance.removePowerUpTimer(powerUpTimer);
     }
 
     /// <summary>
