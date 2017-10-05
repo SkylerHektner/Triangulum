@@ -20,6 +20,12 @@ public class BeaconManager : MonoBehaviour {
     /// </summary>
     public bool lassoModeActive = false;
 
+    // adjust how we draw the lines
+    public float updateInterval = .1f;
+    public float zDisp = -.1f;
+    public float distBetweenDeviance = 1f;
+    public float devianceRange = 1f;
+
     // privates
     // list used to keep track of beacons on map
     List<Transform> beacons = new List<Transform>();
@@ -27,9 +33,12 @@ public class BeaconManager : MonoBehaviour {
     // the line renderer used to draw the triangle lines
     LineRenderer lineRenderer;
 
+
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        StartCoroutine(updateLine());
     }
 
     // Update is called once per frame
@@ -58,31 +67,77 @@ public class BeaconManager : MonoBehaviour {
 
             else if (beacons.Count == 2) placeThirdBeacon();
         }
+	}
 
+    IEnumerator updateLine()
+    {
+        while (true)
+        {
+            updateLineRenderer();
+            yield return new WaitForSeconds(updateInterval);
+        }
+    }
+
+    private void updateLineRenderer()
+    {
         // update the line renderer
         if (beacons.Count == 1)
         {
-            Vector3 temp = new Vector3(transform.parent.localPosition.x, transform.parent.localPosition.y, -.1f);
-            lineRenderer.SetPosition(0, temp);
+            // draw line from player to first beacon
+            List<Vector3> points = addDeviance(transform.parent.localPosition, beacons[0].localPosition);
+            points.Add(beacons[0].localPosition);
+            // set position count and add positions
+            lineRenderer.positionCount = points.Count;
+            for (int i = 0; i < points.Count; i++)
+            {
+                lineRenderer.SetPosition(i, points[i]);
+            }
         }
         else if (beacons.Count == 2)
         {
-            Vector3 temp = new Vector3(transform.parent.localPosition.x, transform.parent.localPosition.y, -.1f);
-            lineRenderer.SetPosition(0, temp);
-            lineRenderer.SetPosition(3, temp);
+            // draw line from player to first beacon
+            List<Vector3> points = addDeviance(transform.parent.localPosition, beacons[0].localPosition);
+            points.Add(beacons[0].localPosition);
+            // draw line from first beacon to second beacon
+            points.AddRange(addDeviance(beacons[0].localPosition, beacons[1].localPosition));
+            points.Add(beacons[1].localPosition);
+            // draw line from second beacon back to player
+            points.AddRange(addDeviance(beacons[1].localPosition, transform.parent.localPosition));
+            points.Add(transform.parent.localPosition);
+            // set position count and add positions
+            lineRenderer.positionCount = points.Count;
+            for (int i = 0; i < points.Count; i++)
+            {
+                lineRenderer.SetPosition(i, points[i]);
+            }
         }
-	}
+    }
+
+    // creates a list of points with the appropriate deviance. Includes the start, but NOT THE END
+    private List<Vector3> addDeviance(Vector3 start, Vector3 end)
+    {
+        List<Vector3> result = new List<Vector3>();
+        result.Add(start);
+        Vector3 path = end - start;
+        for (int i = 0; i*distBetweenDeviance < path.magnitude; i++)
+        {
+            Vector3 point = new Vector3();
+            point.x = path.normalized.x * i * distBetweenDeviance + UnityEngine.Random.Range(-devianceRange, devianceRange);
+            point.y = path.normalized.y * i * distBetweenDeviance + UnityEngine.Random.Range(-devianceRange, devianceRange);
+            point.x += start.x;
+            point.y += start.y;
+            point.z = zDisp;
+            result.Add(point);
+        }
+
+        return result;
+    }
 
     private void placeFirstBeacon(Vector3 pos)
     {
         // instantiate the beacon at the desired position
         GameObject b = Instantiate(beacon);
         b.transform.localPosition = pos;
-
-        // adjust the line render settings
-        lineRenderer.positionCount = 2;
-        Vector3 temp = new Vector3(pos.x, pos.y, -.1f);
-        lineRenderer.SetPosition(1, temp);
 
         // add beacon to list
         beacons.Add(b.transform);
@@ -93,12 +148,6 @@ public class BeaconManager : MonoBehaviour {
         // instantiate the beacon at the desired position
         GameObject b = Instantiate(beacon);
         b.transform.localPosition = pos;
-
-        // adjust the line render settings
-        lineRenderer.positionCount = 4;
-        Vector3 temp = new Vector3(pos.x, pos.y, -.1f);
-        lineRenderer.SetPosition(2, temp);
-        lineRenderer.SetPosition(3, temp);
 
         // add beacon to list
         beacons.Add(b.transform);
