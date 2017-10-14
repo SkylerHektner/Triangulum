@@ -10,6 +10,7 @@ public class IcePowerUp : Powerup
     public float freezeDuration;
     public float freezeRadius;
     public float freezeExpansionTime;
+    public float timeTillExpire;
 
 
     public override void OnUse()

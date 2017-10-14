@@ -108,6 +108,7 @@ public class upgradeLoader : MonoBehaviour {
             i.freezeExpansionTime = data.IcePower_ExpansionTime;
             i.freezeRadius = data.IcePower_Radius;
             i.freezeDuration = data.IcePower_FreezeDuration;
+            i.timeTillExpire = data.IcePower_TimeTillExpire;
         }
         else if (power == "Shield")
         {
@@ -159,8 +160,9 @@ public class UpgradeData
     public bool IcePower_Unlocked = true;
     public float IcePower_DropChance = .05f;
     public float IcePower_Radius = 60;
-    public float IcePower_ExpansionTime = .5f;
+    public float IcePower_ExpansionTime = .3f;
     public float IcePower_FreezeDuration = 5;
+    public float IcePower_TimeTillExpire = 2;
     // shield Power Up
     public bool ShieldPower_Unlocked = true;
     public float ShieldPower_DropChance = .05f;

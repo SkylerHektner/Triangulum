@@ -18,15 +18,26 @@ public class ShieldPowerUp : Powerup
 
     public override void OnUse()
     {
+        // first figure out if the player currently has a shield
+        // if they do, then don't let them use the power
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        for (int i = 0; i < p.transform.childCount; i++)
+        {
+            if (p.transform.GetChild(i).name == "Shield(Clone)")
+            {
+                return;
+            }
+        }
+
+
         // create the shield and modify it's settings 
         shield = GameObject.Instantiate(playerShield);
         Shield s = shield.GetComponent<Shield>();
         s.durability = durability;
         s.flickerDuration = flickerDuration;
         s.caller = this;
+        s.unbreakable = unbreakable;
         shield.GetComponent<CircleCollider2D>().radius = radius;
-        shield.GetComponent<CircleCollider2D>().isTrigger = !unbreakable;
-        //shield.GetComponent<Rigidbody2D>().simulated = unbreakable;
         shield.transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
         shield.transform.localPosition = Vector3.zero;
 
@@ -42,6 +53,7 @@ public class ShieldPowerUp : Powerup
 
     public override void OnEnd()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().invincible = false;
         shield.GetComponent<Shield>().RequestEnd();
         removeHUDTimer();
         base.OnEnd();

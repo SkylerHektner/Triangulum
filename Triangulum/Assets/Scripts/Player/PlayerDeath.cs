@@ -12,11 +12,13 @@ public class PlayerDeath : MonoBehaviour {
     /// </summary>
     public bool disableWaveManagerOnDeath = true;
 
+    public bool invincible = false;
+
     public int Health;
 
 	void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.transform.tag == "Enemy")
+        if (col.transform.tag == "Enemy" && !invincible)
         {
             takeDamage();
         }

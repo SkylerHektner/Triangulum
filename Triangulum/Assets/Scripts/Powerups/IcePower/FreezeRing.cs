@@ -7,6 +7,7 @@ public class FreezeRing : MonoBehaviour {
     public float maxRadius;
     public float timeToMaxRadius;
     public float freezeDuration;
+    public float timeTillExpire;
 
     private float timePassed;
     private float targetScale;
@@ -19,8 +20,12 @@ public class FreezeRing : MonoBehaviour {
 	void Update () {
         timePassed += Time.deltaTime;
         float scale = targetScale * timePassed / timeToMaxRadius;
-        transform.localScale = new Vector3(scale, scale);
-        if (timePassed >= timeToMaxRadius)
+        if (scale < targetScale)
+        {
+            transform.localScale = new Vector3(scale, scale);
+        }
+
+        if (timePassed >= timeTillExpire)
         {
             Destroy(gameObject);
         }

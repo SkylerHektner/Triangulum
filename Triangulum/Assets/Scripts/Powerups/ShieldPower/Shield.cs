@@ -8,6 +8,8 @@ public class Shield : MonoBehaviour {
     public float flickerDelay = .2f;
     public float flickerDuration;
 
+    public bool unbreakable;
+
     public ShieldPowerUp caller;
 
     private bool flickering = false;
@@ -21,6 +23,12 @@ public class Shield : MonoBehaviour {
         // get a couple pointers to the sprite renderes that we will use a lot later
         playerSprite = transform.parent.gameObject.GetComponentInChildren<SpriteRenderer>();
         shieldSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+
+        if (unbreakable)
+        {
+            gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+            transform.parent.gameObject.GetComponent<PlayerDeath>().invincible = true;
+        }
     }
 
     // called when an enemy collides with our shield

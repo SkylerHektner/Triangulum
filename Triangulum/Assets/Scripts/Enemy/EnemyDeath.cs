@@ -25,6 +25,7 @@ public class EnemyDeath : MonoBehaviour {
     public GameObject LaserPower;
     public GameObject DronePower;
     public GameObject IcePower;
+    public GameObject ShieldPower;
 
     /// <summary>
     /// used to keep track of if the enemy has already died once, ensuring no double loot drops
@@ -113,6 +114,16 @@ public class EnemyDeath : MonoBehaviour {
                 p.transform.localPosition = transform.localPosition;
                 p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
                 upgradeLoader.adjustPowerUp(p, "Ice");
+            }
+        }
+        if (upgradeLoader.data.ShieldPower_Unlocked)
+        {
+            if (Random.value < upgradeLoader.data.ShieldPower_DropChance)
+            {
+                GameObject p = GameObject.Instantiate(ShieldPower);
+                p.transform.localPosition = transform.localPosition;
+                p.transform.localPosition = p.transform.localPosition + new Vector3(Random.value, Random.value, Random.value);
+                upgradeLoader.adjustPowerUp(p, "Shield");
             }
         }
 
