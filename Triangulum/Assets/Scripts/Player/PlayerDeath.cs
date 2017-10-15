@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour {
 
     public GameObject deathCanvas;
+    public GameObject deathAnim;
 
     /// <summary>
     /// determins if you disable the wave manager when the player dies
@@ -43,6 +44,10 @@ public class PlayerDeath : MonoBehaviour {
             Destroy(drones[i]);
         }
 
+        // spawn the death animation
+        GameObject d = GameObject.Instantiate(deathAnim);
+        d.transform.localPosition = transform.localPosition;
+
         // Destroy the player 
         Destroy(gameObject);
         Instantiate(deathCanvas);
@@ -50,7 +55,6 @@ public class PlayerDeath : MonoBehaviour {
         {
             GameObject.Find("WaveManager").SetActive(false);
         }
-
         
     }
 }

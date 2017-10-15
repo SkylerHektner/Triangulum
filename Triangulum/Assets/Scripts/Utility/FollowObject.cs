@@ -22,6 +22,10 @@ public class FollowObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, followThis.localPosition + offset, 300);
+        if (followThis != null)
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, followThis.localPosition + offset, 300);
+        }
+        
 	}
 }
