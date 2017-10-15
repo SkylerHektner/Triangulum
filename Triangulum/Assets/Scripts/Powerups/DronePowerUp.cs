@@ -8,9 +8,17 @@ public class DronePowerUp : Powerup {
 
     public float laserCoolDown = 2;
 
+    public bool spikedBodies;
+
+    public float spikedBodiesRadius = 4;
+
+    public float orbitRadius = 10;
+
     // MUST BE ASSIGNED TO DRONE PREFAB
     public GameObject drone;
 
+
+    private List<GameObject> spikedBodiesKillZones = new List<GameObject>();
 
     public override void OnUse()
     {
@@ -31,7 +39,23 @@ public class DronePowerUp : Powerup {
                 Mathf.Cos(Mathf.Deg2Rad * i * radialDeviance), 0);
             d.transform.localPosition = d.transform.localPosition + placementVec.normalized * 3;
             d.GetComponent<Orbit>().center = playerTransform;
+            d.GetComponent<Orbit>().radius = orbitRadius;
             d.GetComponent<FireLaserAtEnemy>().coolDown = laserCoolDown;
+
+            if (spikedBodies)
+            {
+                GameObject s = new GameObject();
+                s.AddComponent<CircleCollider2D>().isTrigger = true;
+                s.GetComponent<CircleCollider2D>().radius = spikedBodiesRadius;
+                s.AddComponent<killCollidedEnemy>();
+                s.transform.localPosition = d.transform.localPosition;
+                s.AddComponent<FollowObject>().followThis = d.transform;
+                s.GetComponent<FollowObject>().offset = Vector3.zero;
+                s.GetComponent<FollowObject>().calcOffset = false;
+                s.name = "Spiked Body Kill Zone" + spikedBodiesKillZones.Count.ToString();
+
+                spikedBodiesKillZones.Add(s);
+            }
         }
 
         setHUDTimer();
@@ -46,7 +70,13 @@ public class DronePowerUp : Powerup {
         {
             Destroy(drones[i]);
         }
-
+        if (spikedBodies)
+        {
+            for (int i = 0; i < spikedBodiesKillZones.Count; i++)
+            {
+                Destroy(spikedBodiesKillZones[i]);
+            }
+        }
         base.OnEnd();
     }
 }

@@ -6,10 +6,18 @@ public class FollowObject : MonoBehaviour {
 
     public Transform followThis;
 
-    private Vector3 offset;
+    public Vector3 offset;
+
+    public bool calcOffset = true;
+
+
 	// Use this for initialization
 	void Start () {
-        offset = transform.localPosition - followThis.localPosition;
+        if (calcOffset)
+        {
+            offset = transform.localPosition - followThis.localPosition;
+        }
+        
 	}
 	
 	// Update is called once per frame

@@ -91,6 +91,9 @@ public class upgradeLoader : MonoBehaviour {
             d.numDrones = data.DronePower_NumDrones;
             d.duration = data.DronePower_DroneDuration;
             d.laserCoolDown = data.DronePower_DroneLaserCooldown;
+            d.spikedBodies = data.DronePower_SpikedBodies;
+            d.spikedBodiesRadius = data.DronePower_SpikedBodiesRadius;
+            d.orbitRadius = data.DrownPower_OrbitRadius;
         }
         else if (power == "Laser")
         {
@@ -143,6 +146,9 @@ public class UpgradeData
     public float DronePower_DroneDuration = 10;
     public int DronePower_NumDrones = 3;
     public float DronePower_DroneLaserCooldown = 2;
+    public bool DronePower_SpikedBodies = true;
+    public float DronePower_SpikedBodiesRadius = 4;
+    public float DrownPower_OrbitRadius = 8;
     // Laser Power Up
     public bool LaserPower_Unlocked = true;
     public float LaserPower_DropChance = .05f;
