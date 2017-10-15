@@ -116,25 +116,21 @@ public class WaveManager : MonoBehaviour {
             int spawnSide = Random.Range(0, 3);
             if (spawnSide == 0) // top of map
             {
-                Debug.Log("Top");
                 c.transform.localPosition = new Vector2(BoardInfo.top, Random.Range(BoardInfo.left, BoardInfo.right));
             }
 
             else if (spawnSide == 1) // bottom of map
             {
-                Debug.Log("bottom");
                 c.transform.localPosition = new Vector2(BoardInfo.bottom + 1, Random.Range(BoardInfo.left, BoardInfo.right));
             }
 
             else if (spawnSide == 2) // right of map
             {
-                Debug.Log("right");
                 c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.right);
             }
 
             else if (spawnSide == 3) // left of map
             {
-                Debug.Log("left");
                 c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.left + 20);
             }
 

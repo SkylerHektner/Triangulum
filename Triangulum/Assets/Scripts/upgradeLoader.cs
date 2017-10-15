@@ -82,6 +82,8 @@ public class upgradeLoader : MonoBehaviour {
             SpeedPowerUp s = powerUp.GetComponent<SpeedPowerUp>();
             s.speedMultiplier = data.SpeedPower_Multiplier;
             s.duration = data.SpeedPower_SpeedDuration;
+            s.train = data.SpeedPower_Train;
+            s.trainRadius = data.SpeedPower_TrainRadius;
         }
         else if (power == "Drone")
         {
@@ -156,6 +158,8 @@ public class UpgradeData
     public float SpeedPower_DropChance = .05f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
+    public bool SpeedPower_Train = true;
+    public float SpeedPower_TrainRadius = 5f;
     // Ice Power Up
     public bool IcePower_Unlocked = true;
     public float IcePower_DropChance = .05f;
