@@ -101,6 +101,8 @@ public class upgradeLoader : MonoBehaviour {
             l.numLasers = data.LaserPower_NumLasers;
             l.laserExpirationTime = data.LaserPower_LaserDuration;
             l.laserSpeed = data.LaserPower_LaserSpeed;
+            l.Fork = data.LaserPower_Fork;
+            l.ForkRadialDeviance = data.LaserPower_ForkRadialDeviance;
         }
         else if (power == "Lasso")
         {
@@ -155,6 +157,8 @@ public class UpgradeData
     public int LaserPower_NumLasers = 20;
     public float LaserPower_LaserSpeed = 60;
     public float LaserPower_LaserDuration = 2;
+    public bool LaserPower_Fork = true;
+    public float LaserPower_ForkRadialDeviance = 30;
     // Lasso Power Up
     public bool LassoPower_Unlocked = true;
     public float LassoPower_DropChance = .05f;

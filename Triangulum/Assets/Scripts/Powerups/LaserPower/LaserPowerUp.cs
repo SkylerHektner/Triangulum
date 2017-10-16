@@ -25,6 +25,10 @@ public class LaserPowerUp : Powerup
     /// </summary>
     public GameObject laser;
 
+    public bool Fork = true;
+
+    public float ForkRadialDeviance = 30;
+
     public override void OnUse()
     {
         float radialDeviance = 360 / numLasers;
@@ -39,6 +43,13 @@ public class LaserPowerUp : Powerup
             l.GetComponent<RemoveSelf>().timeTillRemove = laserExpirationTime;
             Animate a = l.GetComponent<Animate>();
             a.delayBetweenFrames = laserExpirationTime / a.frames.Length;
+
+            if (Fork)
+            {
+                SplitLaserBullet s = l.AddComponent<SplitLaserBullet>();
+                s.splitAngle = ForkRadialDeviance;
+                s.LaserBullet = laser;
+            }
         }
         base.OnUse();
     }

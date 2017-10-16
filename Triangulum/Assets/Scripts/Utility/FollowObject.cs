@@ -26,6 +26,5 @@ public class FollowObject : MonoBehaviour {
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, followThis.localPosition + offset, 300);
         }
-        
 	}
 }
