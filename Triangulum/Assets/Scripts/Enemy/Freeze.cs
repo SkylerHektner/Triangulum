@@ -27,7 +27,7 @@ public class Freeze : MonoBehaviour {
             s.name = "freezeSpriteHolder";
             s.transform.parent = transform;
             s.transform.localPosition = Vector3.zero;
-            s.transform.localScale = transform.localScale / 3;
+            s.transform.localScale = transform.localScale;
             SpriteRenderer r = s.AddComponent<SpriteRenderer>();
             r.sprite = freezeSprite;
             r.sortingLayerName = "Enemies";

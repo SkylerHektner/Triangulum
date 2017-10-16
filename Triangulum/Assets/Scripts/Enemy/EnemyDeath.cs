@@ -45,6 +45,8 @@ public class EnemyDeath : MonoBehaviour {
             ScoreManager.Instance.addScore(baseScoreValue);
             // start the death animation
             StartCoroutine(DeathCoRoutine());
+            //find and stop the animator
+            gameObject.GetComponent<Animate>().animating = false;
         }
     }
 

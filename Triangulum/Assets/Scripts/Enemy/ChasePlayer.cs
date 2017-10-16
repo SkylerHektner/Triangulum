@@ -19,6 +19,9 @@ public class ChasePlayer : MonoBehaviour {
 	
 	void Update () {
         if (playerTransform != null)
+        {
             body.MovePosition(Vector2.MoveTowards(transform.localPosition, playerTransform.localPosition, speed * Time.deltaTime));
+            transform.up = playerTransform.position - transform.position;
+        }
 	}
 }
