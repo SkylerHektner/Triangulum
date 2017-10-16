@@ -38,6 +38,8 @@ public class Freeze : MonoBehaviour {
             d = StartCoroutine(delay(duration));
 
             frozen = true;
+
+            gameObject.GetComponent<Animate>().animating = false;
         }
     }
 
@@ -46,6 +48,7 @@ public class Freeze : MonoBehaviour {
         frozen = false;
         Destroy(s);
         gameObject.GetComponent<ChasePlayer>().enabled = true;
+        gameObject.GetComponent<Animate>().animating = true;
     }
 
     IEnumerator delay(float duration)

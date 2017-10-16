@@ -17,13 +17,23 @@ public class Animate : MonoBehaviour {
 	
 	IEnumerator animate()
     {
-        while (animating)
+        while (true)
         {
-            for (int i = 0; i < frames.Length; i++)
+            while (animating)
             {
-                yield return new WaitForSeconds(delayBetweenFrames);
-                r.sprite = frames[i];
+                for (int i = 0; i < frames.Length; i++)
+                {
+                    yield return new WaitForSeconds(delayBetweenFrames);
+                    r.sprite = frames[i];
+
+                    if (!animating)
+                    {
+                        break;
+                    }
+                }
             }
+
+            yield return new WaitForSeconds(.1f);
         }
     }
 }
