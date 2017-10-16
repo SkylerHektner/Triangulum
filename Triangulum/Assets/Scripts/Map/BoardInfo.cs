@@ -22,11 +22,6 @@ public class BoardInfo : MonoBehaviour {
         bottom = worldPos.y - (size.y / 2f);
         left = worldPos.x - (size.x / 2f);
         right = worldPos.x + (size.x / 2f);
-
-        Debug.Log(top);
-        Debug.Log(bottom);
-        Debug.Log(left);
-        Debug.Log(right);
     }
 	
 	// Update is called once per frame
