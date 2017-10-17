@@ -54,9 +54,15 @@ public class PlayerDeath : MonoBehaviour {
         upgradeLoader.data.Player_TaxPayerDollars += ScoreManager.Instance.score;
         upgradeLoader.Instance.SaveData();
 
-        // Destroy the player 
-        //Destroy(gameObject);
+        // Disable the player 
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponentInChildren<BeaconManager>().enabled = false;
+        gameObject.GetComponent<TeleportAbility>().enabled = false;
+
+        // bring up death canvas
         Instantiate(deathCanvas);
+
+        // disable wave manager
         if (disableWaveManagerOnDeath)
         {
             GameObject.Find("WaveManager").SetActive(false);

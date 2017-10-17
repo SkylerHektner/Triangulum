@@ -33,6 +33,17 @@ public class UpgradeButton : MonoBehaviour {
         {
             locked = false;
             button.interactable = true;
+            for (int i = 0; i < Dependents.Length; i++)
+            {
+                try
+                {
+                    Dependents[i].GetComponent<UpgradeButton>().AddUnlockCredit();
+                }
+                catch
+                {
+                    Debug.Log("Failed to update next button");
+                }
+            }
         }
 	}
 
