@@ -10,6 +10,8 @@ public class FireLaserAtEnemy : MonoBehaviour {
     // cooldown before the drone can fire another laser
     public float coolDown = 5;
 
+    public AudioClip LaserSound;
+
     private bool onCooldown = false;
 
     void OnTriggerEnter2D(Collider2D col)
@@ -24,6 +26,9 @@ public class FireLaserAtEnemy : MonoBehaviour {
             // go on cooldown
             StartCoroutine(delay());
             onCooldown = true;
+
+            // play sound
+            gameObject.GetComponent<AudioSource>().PlayOneShot(LaserSound);
         }
     }
 

@@ -19,6 +19,8 @@ public class EnemyDeath : MonoBehaviour {
     /// </summary>
     public float baseScoreValue = 1;
 
+    public AudioClip deathSound;
+
     // pointers to all powerup prefabs
     public GameObject SpeedPower;
     public GameObject LassoPower;
@@ -47,6 +49,8 @@ public class EnemyDeath : MonoBehaviour {
             StartCoroutine(DeathCoRoutine());
             //find and stop the animator
             gameObject.GetComponent<Animate>().animating = false;
+            //play death sound
+            gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
         }
     }
 

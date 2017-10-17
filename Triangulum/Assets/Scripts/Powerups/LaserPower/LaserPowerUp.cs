@@ -20,6 +20,8 @@ public class LaserPowerUp : Powerup
     /// </summary>
     public float laserExpirationTime = 3;
 
+    public AudioClip LaserSound;
+
     /// <summary>
     /// MUST POINT TO THE LASER PREFAB
     /// </summary>
@@ -50,6 +52,8 @@ public class LaserPowerUp : Powerup
                 s.splitAngle = ForkRadialDeviance;
                 s.LaserBullet = laser;
             }
+            
+            gameObject.GetComponent<AudioSource>().PlayOneShot(LaserSound, .07f);
         }
         base.OnUse();
     }

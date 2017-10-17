@@ -17,6 +17,8 @@ public class PlayerDeath : MonoBehaviour {
 
     public int Health;
 
+    public AudioClip deathSound;
+
 	void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.tag == "Enemy" && !invincible)
@@ -53,12 +55,24 @@ public class PlayerDeath : MonoBehaviour {
         upgradeLoader.Instance.SaveData();
 
         // Destroy the player 
-        Destroy(gameObject);
+        //Destroy(gameObject);
         Instantiate(deathCanvas);
         if (disableWaveManagerOnDeath)
         {
             GameObject.Find("WaveManager").SetActive(false);
         }
+
+        // play death sound and stop music
+        try
+        {
+            GameObject.FindGameObjectWithTag("SoundTrack").GetComponent<AudioSource>().Stop();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
+        }
+        catch
+        {
+            Debug.Log("Do you have a soundtrack in the scene with \"SoundTrack\" tag?");
+        }
+        
         
     }
 }
