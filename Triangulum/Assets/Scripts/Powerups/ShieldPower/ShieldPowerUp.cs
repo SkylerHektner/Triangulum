@@ -9,6 +9,8 @@ public class ShieldPowerUp : Powerup
     public bool unbreakable;
     public float flickerDuration;
 
+    public AudioClip ShieldSound;
+
     /// <summary>
     /// must be set to the instance of the player shield prefab
     /// </summary>
@@ -45,6 +47,9 @@ public class ShieldPowerUp : Powerup
         CircleCollider2D col1 = GameObject.FindGameObjectWithTag("Player").GetComponent<CircleCollider2D>();
         CircleCollider2D col2 = shield.GetComponent<CircleCollider2D>();
         Physics2D.IgnoreCollision(col1, col2, true);
+
+        // play the shield sound
+        gameObject.GetComponent<AudioSource>().PlayOneShot(ShieldSound);
 
         // set HUD timer and call base onUse
         setHUDTimer();

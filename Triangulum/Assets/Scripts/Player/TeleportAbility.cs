@@ -16,6 +16,8 @@ public class TeleportAbility : MonoBehaviour {
 
     public int charges = 1;
 
+    public AudioClip TeleportSound;
+
     /// <summary>
     /// used to detect if the teleport is currently on cooldown
     /// </summary>
@@ -51,6 +53,7 @@ public class TeleportAbility : MonoBehaviour {
             {
                 spawnKillPad(point);
             }
+            gameObject.GetComponent<AudioSource>().PlayOneShot(TeleportSound);
         }
 
     }
