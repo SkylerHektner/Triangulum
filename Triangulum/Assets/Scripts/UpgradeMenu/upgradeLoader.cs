@@ -143,42 +143,62 @@ public class UpgradeData
 {
     // POWER UPS
     // Drone Power Up
-    public bool DronePower_Unlocked = true;
+    public bool DronePower_Unlocked = false;
     public float DronePower_DropChance = .05f;
     public float DronePower_DroneDuration = 10;
     public int DronePower_NumDrones = 3;
     public float DronePower_DroneLaserCooldown = 2;
-    public bool DronePower_SpikedBodies = true;
+    public bool DronePower_SpikedBodies = false;
     public float DronePower_SpikedBodiesRadius = 4;
     public float DrownPower_OrbitRadius = 8;
+
+    public int DronePower_UpgradeNumDrones = 0;
+    public int DronePower_UpgradeDuration = 0;
+    public int DronePower_UpgradeDropChange = 0;
     // Laser Power Up
-    public bool LaserPower_Unlocked = true;
+    public bool LaserPower_Unlocked = false;
     public float LaserPower_DropChance = .05f;
     public int LaserPower_NumLasers = 20;
     public float LaserPower_LaserSpeed = 60;
     public float LaserPower_LaserDuration = 2;
-    public bool LaserPower_Fork = true;
+    public bool LaserPower_Fork = false;
     public float LaserPower_ForkRadialDeviance = 30;
+
+    public int LaserPower_UpgradeDropChange = 0;
+    public int LaserPower_UpgradeRange = 0;
+    public int LaserPower_UpgradeNumLaser = 0;
     // Lasso Power Up
-    public bool LassoPower_Unlocked = true;
+    public bool LassoPower_Unlocked = false;
     public float LassoPower_DropChance = .05f;
     public float LassoPower_LassoDuration = 5;
+    public bool LassoPower_InstantLoop = false;
+
+    public int LassoPower_UpgradeDropChance = 0;
+    public int LassoPower_UpgradeDuration = 0;
     // Speed Power Up
-    public bool SpeedPower_Unlocked = true;
+    public bool SpeedPower_Unlocked = false;
     public float SpeedPower_DropChance = .05f;
     public float SpeedPower_SpeedDuration = 4;
     public float SpeedPower_Multiplier = 1.5f;
-    public bool SpeedPower_Train = true;
+    public bool SpeedPower_Train = false;
     public float SpeedPower_TrainRadius = 5f;
+
+    public int SpeedPower_UpgradeDropChange = 0;
+    public int SpeedPower_UpgradeDuration = 0;
+    public int SpeedPower_UpgradeMultiplier = 0;
     // Ice Power Up
-    public bool IcePower_Unlocked = true;
+    public bool IcePower_Unlocked = false;
     public float IcePower_DropChance = .05f;
     public float IcePower_Radius = 60;
     public float IcePower_ExpansionTime = .3f;
     public float IcePower_FreezeDuration = 5;
     public float IcePower_TimeTillExpire = 2;
+
+    public int IcePower_UpgradeRadius = 0;
+    public int IcePower_UpgradeDuration = 0;
+    public int IcePower_UpgradeDropChange = 0;
     // shield Power Up
-    public bool ShieldPower_Unlocked = true;
+    public bool ShieldPower_Unlocked = false;
     public float ShieldPower_DropChance = .05f;
     public float ShieldPower_Duration = 5;
     public float ShieldPower_Radius = 6;
@@ -186,19 +206,26 @@ public class UpgradeData
     public float ShieldPower_flickerDuration = 2f;
     public bool ShieldPower_Unbreakable = false;
 
-
+    public int ShieldPower_UpgradeDurability = 0;
+    public int ShieldPower_UpgradeDropChance = 0;
+    public int ShieldPower_UpgradeDuration = 0;
     // CHARACTER UPGRADES
     // health
     public int Player_Health = 1;
     // movement
     public float Player_Speed = 50;
     public float Player_Acceleration = 500;
+    // Credits
+    public int Player_TaxPayerDollars = 10000;
 
     // ABILITIES
     // teleport
     public bool Teleport_CanTeleport = false;
     public float Teleport_Cooldown = 10;
-    public bool Teleport_Lethal = true;
+    public bool Teleport_Lethal = false;
     public float Teleport_LethalRadius = 10;
     public int Teleport_Charges = 1;
+
+    public int Teleport_UpgradeRecharge = 0;
+    public int Teleport_UpgradeBattery = 0;
 }
