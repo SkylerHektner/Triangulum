@@ -121,6 +121,7 @@ public class upgradeLoader : MonoBehaviour {
             i.freezeRadius = data.IcePower_Radius;
             i.freezeDuration = data.IcePower_FreezeDuration;
             i.timeTillExpire = data.IcePower_TimeTillExpire;
+            i.LethalFreeze = data.IcePower_UpgradeDuration >= 3;
         }
         else if (power == "Shield")
         {
@@ -221,7 +222,7 @@ public class UpgradeData
     public float Player_Speed = 50;
     public float Player_Acceleration = 500;
     // Credits
-    public int Player_TaxPayerDollars = 0;
+    public int Player_TaxPayerDollars = 1000;
 
     // ABILITIES
     // teleport

@@ -12,6 +12,8 @@ public class IcePowerUp : Powerup
     public float freezeExpansionTime;
     public float timeTillExpire;
 
+    public bool LethalFreeze = false;
+
 
     public override void OnUse()
     {
@@ -21,6 +23,7 @@ public class IcePowerUp : Powerup
         r.freezeDuration = freezeDuration;
         r.maxRadius = freezeRadius;
         r.timeToMaxRadius = freezeExpansionTime;
+        r.LethalFreeze = LethalFreeze;
         setHUDTimer(freezeDuration);
         base.OnUse();
     }

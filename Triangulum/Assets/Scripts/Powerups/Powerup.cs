@@ -25,7 +25,7 @@ public abstract class Powerup : MonoBehaviour {
     /// <param name="collider"></param>
 	void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Shield")
         {
 			// call OnUse 
             OnUse();
