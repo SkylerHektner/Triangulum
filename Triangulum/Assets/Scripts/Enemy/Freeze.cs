@@ -8,6 +8,8 @@ public class Freeze : MonoBehaviour {
 
     public bool freezable = true;
 
+    public bool LethalFreeze = false;
+
     private GameObject s;
     private Coroutine d;
     private bool frozen = false;
@@ -49,6 +51,10 @@ public class Freeze : MonoBehaviour {
         Destroy(s);
         gameObject.GetComponent<ChasePlayer>().enabled = true;
         gameObject.GetComponent<Animate>().animating = true;
+        if (LethalFreeze)
+        {
+            gameObject.GetComponent<EnemyDeath>().Die();
+        }
     }
 
     IEnumerator delay(float duration)

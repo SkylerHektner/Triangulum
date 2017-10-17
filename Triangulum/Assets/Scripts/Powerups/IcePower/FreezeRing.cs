@@ -9,6 +9,8 @@ public class FreezeRing : MonoBehaviour {
     public float freezeDuration;
     public float timeTillExpire;
 
+    public bool LethalFreeze = false;
+
     private float timePassed;
     private float targetScale;
 	// Use this for initialization
@@ -36,6 +38,7 @@ public class FreezeRing : MonoBehaviour {
         if (col.gameObject.tag == "Enemy")
         {
             col.gameObject.GetComponent<Freeze>().FreezeEntity(freezeDuration);
+            col.gameObject.GetComponent<Freeze>().LethalFreeze = LethalFreeze;
         }
     }
 }
