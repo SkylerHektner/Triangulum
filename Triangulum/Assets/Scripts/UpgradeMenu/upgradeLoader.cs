@@ -19,8 +19,13 @@ public class upgradeLoader : MonoBehaviour {
     /// </summary>
     public static UpgradeData data;
 
+    public static upgradeLoader Instance;
+
 	// Use this for initialization
 	void Start () {
+        // set Instance
+        Instance = this;
+
         // set the path to the upgrades Json and load the data contained or create a fresh data set
         path = Application.streamingAssetsPath + "/Upgrades.json";
         if (resetDataOnPlay)

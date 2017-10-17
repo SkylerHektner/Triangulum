@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour {
     public float multiplierGrowthRate = .1f;
 
     private float multiplier = 1;
-    private int score = 0;
+    public int score = 0;
 
 
 	void Start () {

@@ -9,13 +9,10 @@ public class HUDManager : MonoBehaviour {
     public static HUDManager Instance;
     // a pointer to the prefab we use for displaying power up timers
     public GameObject powerTimer;
-    // pointers to the power up sprites
-    public Sprite SpeedPowerSprite;
-    public Sprite DronePowerSprite;
-    public Sprite LassoPowerSprite;
 
     private Text scoreText;
     private Text multiplierText;
+    private Text moneyText;
     private List<GameObject> powerUpTimers = new List<GameObject>();
 
 	void Start () {
@@ -23,6 +20,8 @@ public class HUDManager : MonoBehaviour {
 
         scoreText = transform.GetChild(0).Find("Score").Find("ScoreText").GetComponent<Text>();
         multiplierText = transform.GetChild(0).Find("Score").Find("MultiplierText").GetComponent<Text>();
+        moneyText = transform.GetChild(0).Find("Moneys").Find("Text").GetComponent<Text>();
+        moneyText.text = "Money: " + upgradeLoader.data.Player_TaxPayerDollars.ToString();
     }
 
     void Update()

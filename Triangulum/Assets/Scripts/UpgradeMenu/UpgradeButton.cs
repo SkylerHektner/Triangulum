@@ -56,6 +56,8 @@ public class UpgradeButton : MonoBehaviour {
         {
             Dependents[i].GetComponent<UpgradeButton>().AddUnlockCredit();
         }
+        upgradeLoader.data.Player_TaxPayerDollars -= cost;
+        upgradeLoader.Instance.SaveData();
     }
 
     public virtual bool CheckUnlocked()
