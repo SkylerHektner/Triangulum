@@ -131,7 +131,7 @@ public class WaveManager : MonoBehaviour {
 
             else if (spawnSide == 3) // left of map
             {
-                c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.left + 20);
+                c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.left);
             }
 
             yield return new WaitForSeconds(spawnDelay);

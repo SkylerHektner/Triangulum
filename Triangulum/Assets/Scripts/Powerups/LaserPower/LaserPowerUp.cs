@@ -36,16 +36,22 @@ public class LaserPowerUp : Powerup
         float radialDeviance = 360 / numLasers;
         for (int i = 0; i < numLasers; i++)
         {
-            GameObject l = GameObject.Instantiate(laser);
-            l.transform.localPosition = transform.localPosition;
-            l.transform.localRotation = Quaternion.Euler(0, 0, -i * radialDeviance + 90);
+            // create laser gameobject pointer
+            GameObject l;
+            // fetch from object pool
+            ObjectPoolsAccessor.instance.laserPool.TryGetNextObject(transform.localPosition, Quaternion.Euler(0, 0, -i * radialDeviance + 90), out l);
+            // assign the vector it must follow
             l.GetComponent<FollowVector>().vec = new Vector3(
                 Mathf.Sin(Mathf.Deg2Rad * i * radialDeviance), Mathf.Cos(Mathf.Deg2Rad * i * radialDeviance), 0);
+            // set the lasers movement speed
             l.GetComponent<FollowVector>().speed = laserSpeed;
-            l.GetComponent<RemoveSelf>().timeTillRemove = laserExpirationTime;
+            // set the lasers disable time
+            l.GetComponent<TimedDisable>().DisableTime = laserExpirationTime;
+            // set the animation time based on the duration of the laser
             Animate a = l.GetComponent<Animate>();
             a.delayBetweenFrames = laserExpirationTime / a.frames.Length;
 
+            // if the laser has fork, add the fork script to it
             if (Fork)
             {
                 SplitLaserBullet s = l.AddComponent<SplitLaserBullet>();
@@ -53,6 +59,7 @@ public class LaserPowerUp : Powerup
                 s.LaserBullet = laser;
             }
             
+            // play the pickup sound
             gameObject.GetComponent<AudioSource>().PlayOneShot(LaserSound, .07f);
         }
         base.OnUse();

@@ -8,6 +8,9 @@ public class Animate : MonoBehaviour {
     public float delayBetweenFrames;
     public bool animating = true;
 
+    public bool loopCustomRange = false;
+    public int[] customRange = new int[2];
+
     private SpriteRenderer r;
 
 	void Start () {
@@ -19,9 +22,11 @@ public class Animate : MonoBehaviour {
     {
         while (true)
         {
+            int i = 0;
+            int e = frames.Length;
             while (animating)
             {
-                for (int i = 0; i < frames.Length; i++)
+                for (; i < e; i++)
                 {
                     yield return new WaitForSeconds(delayBetweenFrames);
                     r.sprite = frames[i];
@@ -31,6 +36,13 @@ public class Animate : MonoBehaviour {
                         break;
                     }
                 }
+                if (loopCustomRange)
+                {
+                    i = customRange[0];
+                    e = customRange[1];
+                }
+                else
+                    i = 0;
             }
 
             yield return new WaitForSeconds(.1f);

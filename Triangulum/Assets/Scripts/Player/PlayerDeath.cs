@@ -58,6 +58,8 @@ public class PlayerDeath : MonoBehaviour {
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.GetComponentInChildren<BeaconManager>().enabled = false;
         gameObject.GetComponent<TeleportAbility>().enabled = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
         // bring up death canvas
         Instantiate(deathCanvas);
