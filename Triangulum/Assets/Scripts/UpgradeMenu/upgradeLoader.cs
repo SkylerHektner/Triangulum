@@ -113,6 +113,9 @@ public class upgradeLoader : MonoBehaviour {
         {
             LassoPowerUp l = powerUp.GetComponent<LassoPowerUp>();
             l.duration = data.LassoPower_LassoDuration;
+            l.InstantLoop = data.LassoPower_InstantLoop;
+            l.InstantLoopRadialDeviance = data.LassoPower_InstantLoopRadialDeviance;
+            l.InstantLoopRange = data.LassoPower_InstantLoopRange;
         }
         else if (power == "Ice")
         {
@@ -178,6 +181,8 @@ public class UpgradeData
     public float LassoPower_DropChance = .02f;
     public float LassoPower_LassoDuration = 5;
     public bool LassoPower_InstantLoop = false;
+    public float LassoPower_InstantLoopRange = 60f;
+    public float LassoPower_InstantLoopRadialDeviance = 30f;
 
     public int LassoPower_UpgradeDropChance = 0;
     public int LassoPower_UpgradeDuration = 0;
@@ -222,7 +227,7 @@ public class UpgradeData
     public float Player_Speed = 50;
     public float Player_Acceleration = 500;
     // Credits
-    public int Player_TaxPayerDollars = 1000;
+    public int Player_TaxPayerDollars = 1000000;
 
     // ABILITIES
     // teleport

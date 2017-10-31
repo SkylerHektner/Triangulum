@@ -20,6 +20,10 @@ public class BeaconManager : MonoBehaviour {
     /// </summary>
     public bool lassoModeActive = false;
 
+    public bool lassoInstantLoop = false;
+    public float instantLoopRange = 60f;
+    public float instantLoopRadialDeviance = 30f;
+
     // adjust how we draw the lines
     public float updateInterval = .1f;
     public float zDisp = -.1f;
@@ -66,6 +70,11 @@ public class BeaconManager : MonoBehaviour {
             else if (beacons.Count == 1) placeSecondBeacon(pos);
 
             else if (beacons.Count == 2) placeThirdBeacon();
+
+            if (lassoInstantLoop)
+            {
+                instantLoop();
+            }
         }
 	}
 
@@ -170,5 +179,55 @@ public class BeaconManager : MonoBehaviour {
 
         // reset the lineRenderer
         lineRenderer.positionCount = 1;
+    }
+
+    private void instantLoop()
+    {
+        // remove all beacons from game
+        for (int i = 0; i < beacons.Count; i++)
+        {
+            Destroy(beacons[i].gameObject);
+        }
+        beacons.Clear();
+
+        // calculate a vector from the player to the click point
+        Vector3 clickDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.parent.localPosition);
+        clickDirection.z = 0;
+        // use tan to derive the angle of that vector
+        float clickAngle = Mathf.Rad2Deg * Mathf.Atan(clickDirection.y / clickDirection.x);
+        // account for the fact that tan messes up past 180 degrees
+        if (clickDirection.x < 0)
+            clickAngle += 180;
+
+        // INSTANTIATE FIRST BEACON
+        // calc desired position
+        Vector3 DirectionVector = new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * (clickAngle + instantLoopRadialDeviance)),
+                Mathf.Sin(Mathf.Deg2Rad * (clickAngle + instantLoopRadialDeviance)),
+                0).normalized * instantLoopRange;
+        // instantiate the beacon at the desired position
+        GameObject b = Instantiate(beacon);
+        b.transform.localPosition = transform.parent.localPosition + DirectionVector;
+
+        // add beacon to list
+        beacons.Add(b.transform);
+
+        // INSTANTIATE SECOND BEACON
+        // calc desired position
+        DirectionVector = new Vector3(
+                Mathf.Cos(Mathf.Deg2Rad * (clickAngle - instantLoopRadialDeviance)),
+                Mathf.Sin(Mathf.Deg2Rad * (clickAngle - instantLoopRadialDeviance)),
+                0).normalized * instantLoopRange;
+        // instantiate the beacon at the desired position
+        b = Instantiate(beacon);
+        b.transform.localPosition = transform.parent.localPosition + DirectionVector;
+
+        // add beacon to list
+        beacons.Add(b.transform);
+
+
+        //update line renderer
+        updateLineRenderer();
+
     }
 }

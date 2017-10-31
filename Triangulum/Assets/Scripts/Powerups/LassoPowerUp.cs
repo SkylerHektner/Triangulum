@@ -6,6 +6,11 @@ public class LassoPowerUp : Powerup
 {
     // get a pointer to the Beacon Manager since we will be using it a lot
     BeaconManager man;
+
+    public bool InstantLoop = false;
+    public float InstantLoopRange = 60f;
+    public float InstantLoopRadialDeviance = 30f;
+
     void Start()
     {
         man = GameObject.Find("Player").GetComponentInChildren<BeaconManager>();
@@ -21,6 +26,9 @@ public class LassoPowerUp : Powerup
         else
         {
             man.lassoModeActive = true;
+            man.lassoInstantLoop = InstantLoop;
+            man.instantLoopRange = InstantLoopRange;
+            man.instantLoopRadialDeviance = InstantLoopRadialDeviance;
         }
         setHUDTimer();
         base.OnUse();
@@ -28,7 +36,7 @@ public class LassoPowerUp : Powerup
 
     public override void OnEnd()
     {
-        GameObject.Find("Player").GetComponentInChildren<BeaconManager>().lassoModeActive = false;
+        man.lassoModeActive = false;
         base.OnEnd();
     }
 }
