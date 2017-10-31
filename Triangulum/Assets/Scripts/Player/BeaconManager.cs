@@ -37,12 +37,16 @@ public class BeaconManager : MonoBehaviour {
     // the line renderer used to draw the triangle lines
     LineRenderer lineRenderer;
 
+    GameObject lightningParticleSystem;
+
 
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         StartCoroutine(updateLine());
+        lightningParticleSystem = transform.Find("Lightning Particle System").gameObject;
+        lightningParticleSystem.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -169,6 +173,25 @@ public class BeaconManager : MonoBehaviour {
         PolygonCollider2D collider = c.GetComponent<PolygonCollider2D>();
         collider.SetPath(0, new Vector2[] { beacons[0].localPosition, beacons[1].localPosition, transform.parent.localPosition });
 
+        // ACTIVATE THE PARTICLE SYSTEM
+        // disable incase it has not been disabled from the previous cycle
+        lightningParticleSystem.SetActive(false);
+
+        Mesh mesh = new Mesh();
+        Vector3[] verts = new Vector3[3]
+        {
+            beacons[0].transform.localPosition, beacons[1].transform.localPosition, transform.parent.localPosition
+        };
+        int[] tri = new int[3] { 2, 1, 0 };
+        mesh.vertices = verts;
+        mesh.triangles = tri;
+        ParticleSystem.ShapeModule s = lightningParticleSystem.GetComponent<ParticleSystem>().shape;
+        s.mesh = mesh;
+
+
+        // re-enable the system
+        lightningParticleSystem.SetActive(true);
+
 
         // remove all beacons from game
         for (int i = 0; i < beacons.Count; i++)
@@ -181,6 +204,7 @@ public class BeaconManager : MonoBehaviour {
         lineRenderer.positionCount = 1;
     }
 
+    // used by the Instant Loop Powerup
     private void instantLoop()
     {
         // remove all beacons from game
