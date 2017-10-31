@@ -94,4 +94,9 @@ public class HUDManager : MonoBehaviour {
     {
         multiplierText.text = "x" + f.ToString();
     }
+
+    public void setMoney(int m)
+    {
+        moneyText.text = m.ToString();
+    }
 }

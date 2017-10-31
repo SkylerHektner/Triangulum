@@ -19,10 +19,6 @@ public class ScoreManager : MonoBehaviour {
         Instance = this;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public int addScore(float baseValue)
     {

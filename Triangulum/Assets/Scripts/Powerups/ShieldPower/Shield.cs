@@ -57,7 +57,7 @@ public class Shield : MonoBehaviour {
 
         // disable the players ability to die and collide with enemies
         transform.parent.gameObject.GetComponent<PlayerDeath>().enabled = false;
-        transform.parent.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        transform.parent.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
 
         // flicker the sprites of the player on and off
         for (float i = flickerDuration; i > 0; i -= flickerDelay)
@@ -71,7 +71,7 @@ public class Shield : MonoBehaviour {
 
         // re-enable the players ability to die and collide with enemies
         transform.parent.gameObject.GetComponent<PlayerDeath>().enabled = true;
-        transform.parent.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        transform.parent.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
 
         flickering = false;
 
