@@ -16,6 +16,10 @@ public class UpgradeButton : MonoBehaviour {
 
     public int cost = 100;
 
+    public string upgradeName;
+
+    public string descriptionText;
+
     private int unlockCount = 0;
 
     private Button button;
@@ -23,7 +27,7 @@ public class UpgradeButton : MonoBehaviour {
     // Use this for initialization
     void Start () {
         button = gameObject.GetComponent<Button>();
-        button.onClick.AddListener(UpgradeRequest);
+        button.onClick.AddListener(CreateUpgradeDialogue);
         if (!treeStart)
         {
             button.interactable = !locked;
@@ -47,18 +51,33 @@ public class UpgradeButton : MonoBehaviour {
         }
 	}
 
-    public void UpgradeRequest()
+    public void CreateUpgradeDialogue()
+    {
+        if (!CheckUnlocked())
+        {
+            GameObject dio = UpgradeDialogue.instance.gameObject;
+            UpgradeDialogue s = dio.GetComponent<UpgradeDialogue>();
+            s.nameText = upgradeName;
+            s.descriptionText = descriptionText;
+            s.cost = cost;
+            s.caller = this;
+
+            dio.SetActive(true);
+        }
+    }
+
+    public bool UpgradeRequest()
     {
         // check if they can afford the upgrade
         if (cost > upgradeLoader.data.Player_TaxPayerDollars)
         {
             Debug.Log("You can't afford that");
-            return;
+            return false;
         }
         if (CheckUnlocked())
         {
             Debug.Log("You already unlocked this");
-            return;
+            return false;
         }
 
 
@@ -69,6 +88,8 @@ public class UpgradeButton : MonoBehaviour {
         }
         upgradeLoader.data.Player_TaxPayerDollars -= cost;
         upgradeLoader.Instance.SaveData();
+
+        return true;
     }
 
     public virtual bool CheckUnlocked()
