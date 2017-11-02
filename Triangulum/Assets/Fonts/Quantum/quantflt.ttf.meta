@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: aad34511918f47a4eb28a242d07b3aed
+timeCreated: 1509582201
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Quantum Flat BRK
+  fontNames:
+  - Quantum Flat BRK
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

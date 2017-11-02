@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ae13b860087e18349bc94586dd0fcc62
+timeCreated: 1509582201
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Quantum Flat Hollow BRK
+  fontNames:
+  - Quantum Flat Hollow BRK
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
