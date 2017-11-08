@@ -49,6 +49,10 @@ public class UpgradeButton : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
 	}
 
     public void CreateUpgradeDialogue()
@@ -88,6 +92,8 @@ public class UpgradeButton : MonoBehaviour {
         }
         upgradeLoader.data.Player_TaxPayerDollars -= cost;
         upgradeLoader.Instance.SaveData();
+
+        transform.GetChild(0).gameObject.SetActive(true);
 
         return true;
     }
