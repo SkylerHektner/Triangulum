@@ -12,21 +12,22 @@ public class Animate : MonoBehaviour {
     public int[] customRange = new int[2];
 
     private SpriteRenderer r;
-    private Coroutine AnimationCoroutine;
 
 	void Start () {
         r = gameObject.GetComponent<SpriteRenderer>();
-        AnimationCoroutine = StartCoroutine(animate());
+        StartCoroutine(animate());
 	}
 
     void OnDisable()
     {
-        StopCoroutine(AnimationCoroutine);
+        StopAllCoroutines();
     }
 
     void OnEnable()
     {
-        AnimationCoroutine = StartCoroutine(animate());
+        r = gameObject.GetComponent<SpriteRenderer>();
+        r.sprite = frames[0];
+        StartCoroutine(animate());
     }
 	
 	IEnumerator animate()

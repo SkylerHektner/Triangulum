@@ -6,7 +6,7 @@ public class ObjectPoolsAccessor : MonoBehaviour {
 
     public static ObjectPoolsAccessor instance;
 
-    public EZObjectPools.EZObjectPool laserPool; 
+    public ObjectPool laserPool; 
 
 	// Use this for initialization
 	void Start () {

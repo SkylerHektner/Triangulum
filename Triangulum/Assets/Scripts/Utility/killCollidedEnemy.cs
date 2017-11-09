@@ -6,6 +6,8 @@ public class killCollidedEnemy : MonoBehaviour
 {
 
     public bool destroySelfOnKill = false;
+
+    public bool disableSelfOnKill = false;
     
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -15,6 +17,10 @@ public class killCollidedEnemy : MonoBehaviour
             if (destroySelfOnKill)
             {
                 Destroy(gameObject);
+            }
+            else if (disableSelfOnKill)
+            {
+                gameObject.SetActive(false);
             }
         }
     }

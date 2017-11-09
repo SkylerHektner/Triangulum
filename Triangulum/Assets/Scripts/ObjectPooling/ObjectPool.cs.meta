@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 7d96d7286ab4f9c4282e0f2be401aeee
-labels:
-- ObjectPool
-- Pooling
+guid: 7fe262f96ddecb145b4d06039f3f71c0
+timeCreated: 1510178970
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
