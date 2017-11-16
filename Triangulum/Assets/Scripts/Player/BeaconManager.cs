@@ -30,6 +30,8 @@ public class BeaconManager : MonoBehaviour {
     public float distBetweenDeviance = 1f;
     public float devianceRange = 1f;
 
+    public float unitToParticleRatio = 2;
+
     // privates
     // list used to keep track of beacons on map
     List<Transform> beacons = new List<Transform>();
@@ -177,6 +179,7 @@ public class BeaconManager : MonoBehaviour {
         // disable incase it has not been disabled from the previous cycle
         lightningParticleSystem.SetActive(false);
 
+        // create a mesh for the area to be filled with particles
         Mesh mesh = new Mesh();
         Vector3[] verts = new Vector3[3]
         {
@@ -188,8 +191,23 @@ public class BeaconManager : MonoBehaviour {
         ParticleSystem.ShapeModule s = lightningParticleSystem.GetComponent<ParticleSystem>().shape;
         s.mesh = mesh;
 
+        // determine the number of particles to spawn based on the area of the triangle
+        float Xa = beacons[0].transform.localPosition.x;
+        float Xb = beacons[1].transform.localPosition.x;
+        float Xc = transform.parent.localPosition.x;
+        float Ya = beacons[0].transform.localPosition.y;
+        float Yb = beacons[1].transform.localPosition.y;
+        float Yc = transform.parent.localPosition.y;
+        float area = .5f * Mathf.Abs((Xa - Xc) * (Yb - Ya) - (Xa - Xb) * (Yc - Ya));
+        int numParticles = Mathf.RoundToInt(area * unitToParticleRatio);
 
-        // re-enable the system
+        Debug.Log(numParticles);
+
+        ParticleSystem.Burst b = new ParticleSystem.Burst(0, (short)numParticles, (short)numParticles, 1, .01f);
+        ParticleSystem.Burst[] bb = new ParticleSystem.Burst[1] { b };
+        lightningParticleSystem.GetComponent<ParticleSystem>().emission.SetBursts(bb);
+
+        // re-enable the particle system
         lightningParticleSystem.SetActive(true);
 
 
