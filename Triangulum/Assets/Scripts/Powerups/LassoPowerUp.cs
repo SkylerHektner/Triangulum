@@ -14,6 +14,7 @@ public class LassoPowerUp : Powerup
     void Start()
     {
         man = GameObject.Find("Player").GetComponentInChildren<BeaconManager>();
+        StartCoroutine(expirationAnimation());
     }
 
     public override void OnUse()

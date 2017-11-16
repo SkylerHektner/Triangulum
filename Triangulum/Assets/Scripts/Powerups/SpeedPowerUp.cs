@@ -19,6 +19,7 @@ public class SpeedPowerUp : Powerup {
     void Start()
     {
         movementScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        StartCoroutine(expirationAnimation());
     }
 
     public override void OnUse()
