@@ -14,7 +14,6 @@ public class SplitLaserBullet : MonoBehaviour {
     {
         if (canSplit && collider.gameObject.tag == "Enemy")
         {
-            Debug.Log("I split");
             // FIRST LASER
             // create laser object pointer and fetch from pool
             GameObject l;

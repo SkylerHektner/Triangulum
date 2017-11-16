@@ -35,7 +35,6 @@ public class LaserPowerUp : Powerup
     {
         
         float radialDeviance = 360 / numLasers;
-        Debug.Log("I was used and created " + numLasers + "lasers");
         // create laser gameobject pointer
         GameObject l;
         for (int i = 0; i < numLasers; i++)

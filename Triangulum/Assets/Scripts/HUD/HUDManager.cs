@@ -9,19 +9,28 @@ public class HUDManager : MonoBehaviour {
     public static HUDManager Instance;
     // a pointer to the prefab we use for displaying power up timers
     public GameObject powerTimer;
+    // used for displaying the different number of teleports the player has saved up
+    public Sprite[] teleportBatteries;
 
     private Text scoreText;
     private Text multiplierText;
     private Text moneyText;
     private List<GameObject> powerUpTimers = new List<GameObject>();
 
-	void Start () {
+    private Slider teleportSlider;
+    private Image teleportBatteryImage;
+
+
+    void Start () {
         Instance = this;
 
         scoreText = transform.GetChild(0).Find("Score").Find("ScoreText").GetComponent<Text>();
         multiplierText = transform.GetChild(0).Find("Score").Find("MultiplierText").GetComponent<Text>();
         moneyText = transform.GetChild(0).Find("Moneys").Find("Text").GetComponent<Text>();
         moneyText.text = "Money: " + upgradeLoader.data.Player_TaxPayerDollars.ToString();
+
+        teleportSlider = transform.GetChild(0).Find("Teleport").Find("Slider").gameObject.GetComponent<Slider>();
+        teleportBatteryImage = transform.GetChild(0).Find("Teleport").Find("Battery Icon").gameObject.GetComponent<Image>();
     }
 
     void Update()
@@ -98,5 +107,25 @@ public class HUDManager : MonoBehaviour {
     public void setMoney(int m)
     {
         moneyText.text = m.ToString();
+    }
+
+    public void setTeleportSliderValue(float v)
+    {
+        if (v > 1 || v < 0)
+        {
+            //Debug.Log("You passed in the wrong value for the teleport slider in the HUD: " + v);
+            return;
+        }
+        teleportSlider.value = v;
+    }
+
+    public void setTeleportBatteryIcon(int numCharges)
+    {
+        if (numCharges < 0 || numCharges > 5)
+        {
+            Debug.Log("You passed in the wrong number of charges for the battery icon for teleport in the HUD: " + numCharges);
+            return;
+        }
+        teleportBatteryImage.sprite = teleportBatteries[numCharges];
     }
 }

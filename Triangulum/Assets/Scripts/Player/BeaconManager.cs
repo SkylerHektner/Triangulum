@@ -174,6 +174,7 @@ public class BeaconManager : MonoBehaviour {
         GameObject c = Instantiate(detonateCollision);
         PolygonCollider2D collider = c.GetComponent<PolygonCollider2D>();
         collider.SetPath(0, new Vector2[] { beacons[0].localPosition, beacons[1].localPosition, transform.parent.localPosition });
+        c.GetComponent<RemoveSelf>().timeTillRemove = .1f;
 
         // ACTIVATE THE PARTICLE SYSTEM
         // disable incase it has not been disabled from the previous cycle
@@ -200,8 +201,6 @@ public class BeaconManager : MonoBehaviour {
         float Yc = transform.parent.localPosition.y;
         float area = .5f * Mathf.Abs((Xa - Xc) * (Yb - Ya) - (Xa - Xb) * (Yc - Ya));
         int numParticles = Mathf.RoundToInt(area * unitToParticleRatio);
-
-        Debug.Log(numParticles);
 
         ParticleSystem.Burst b = new ParticleSystem.Burst(0, (short)numParticles, (short)numParticles, 1, .01f);
         ParticleSystem.Burst[] bb = new ParticleSystem.Burst[1] { b };

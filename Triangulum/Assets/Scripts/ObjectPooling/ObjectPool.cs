@@ -23,7 +23,6 @@ public class ObjectPool : MonoBehaviour {
 
     public void requestObject(Vector3 startPosition, Quaternion rotation, out GameObject g)
     {
-        Debug.Log("An object was requested");
         g = pool.Pop();
         g.SetActive(true);
         g.transform.localPosition = startPosition;
