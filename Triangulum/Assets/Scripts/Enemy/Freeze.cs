@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Freeze : MonoBehaviour {
 
-    public Sprite freezeSprite;
+    public Sprite[] freezeSprites;
 
     public bool freezable = true;
 
@@ -25,22 +25,34 @@ public class Freeze : MonoBehaviour {
                 StopCoroutine(d);
             }
 
+            // create as freeze overlay object
             s = new GameObject();
             s.name = "freezeSpriteHolder";
             s.transform.parent = transform;
             s.transform.localPosition = Vector3.zero;
             s.transform.localScale = transform.localScale;
+
+            // add and configure its sprite renderer
             SpriteRenderer r = s.AddComponent<SpriteRenderer>();
-            r.sprite = freezeSprite;
+            r.sprite = freezeSprites[0];
             r.sortingLayerName = "Enemies";
             r.sortingOrder = 1;
 
+            // add and configure its animation
+            Animate a = s.AddComponent<Animate>();
+            a.frames = freezeSprites;
+            a.delayBetweenFrames = duration / freezeSprites.Length;
+
+            // ensure we stop chasing the player while frozen
             gameObject.GetComponent<ChasePlayer>().enabled = false;
 
+            // start a delay before we thaw
             d = StartCoroutine(delay(duration));
 
+            // make sure we know we are frozen incase we are frozen again
             frozen = true;
 
+            // stop our regular animation so we don't spin in the ice block
             gameObject.GetComponent<Animate>().animating = false;
         }
     }
