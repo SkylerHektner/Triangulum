@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ce3f6b24bd6eb640817cdde6bd910b9
-timeCreated: 1510952909
+guid: f6178477392fa2d44a55c3c3ce2bf2bb
+timeCreated: 1510950094
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walls_0
+    21300000: upgrades-spawner_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walls_0
+      name: upgrades-spawner_0
       rect:
         serializedVersion: 2
-        x: 701
-        y: 49
-        width: 518
-        height: 983
+        x: 675
+        y: 232
+        width: 669
+        height: 679
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

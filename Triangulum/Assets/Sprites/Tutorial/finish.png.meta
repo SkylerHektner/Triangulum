@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9ce3f6b24bd6eb640817cdde6bd910b9
-timeCreated: 1510952909
+guid: 1d1701ca1c026c34aa0175c23e489c6e
+timeCreated: 1510952578
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walls_0
+    21300000: finish_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walls_0
+      name: finish_0
       rect:
         serializedVersion: 2
-        x: 701
-        y: 49
-        width: 518
-        height: 983
+        x: 583
+        y: 401
+        width: 814
+        height: 298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
