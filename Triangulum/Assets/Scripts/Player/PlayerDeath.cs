@@ -27,6 +27,14 @@ public class PlayerDeath : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.tag == "Enemy" && !invincible)
+        {
+            takeDamage();
+        }
+    }
+
     private void takeDamage()
     {
         Health -= 1;

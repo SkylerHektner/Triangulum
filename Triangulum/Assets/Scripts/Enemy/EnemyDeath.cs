@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour {
 
-    /// <summary>
-    /// speed of the death animation in seconds
-    /// </summary>
+    // speed of the death animation in seconds
     public float deathAnimSpeed = .3f;
-
-    /// <summary>
-    /// Pointer to the sprite images used in the death animation
-    /// </summary>
+    // Pointer to the sprite images used in the death animation
     public Sprite[] deathFrames;
-
-    /// <summary>
-    /// The base score value of the enemy
-    /// </summary>
+    // The base score value of the enemy
     public float baseScoreValue = 1;
-
+    // Sound played when the enemy dies
     public AudioClip deathSound;
+    // public bool to know if the enemy is a projetile throwing
+    public bool projectileThrower = false;
+
 
     // pointers to all powerup prefabs
     public GameObject SpeedPower;
@@ -29,9 +24,7 @@ public class EnemyDeath : MonoBehaviour {
     public GameObject IcePower;
     public GameObject ShieldPower;
 
-    /// <summary>
-    /// used to keep track of if the enemy has already died once, ensuring no double loot drops
-    /// </summary>
+    // used to keep track of if the enemy has already died once, ensuring no double loot drops
     private bool dead = false;
 
     public void Die()
@@ -42,7 +35,14 @@ public class EnemyDeath : MonoBehaviour {
             dead = true;
             // disable the collider and follow script so the player cannot still die to the mob
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            gameObject.GetComponent<ChasePlayer>().enabled = false;
+            if (!projectileThrower)
+            {
+                gameObject.GetComponent<ChasePlayer>().enabled = false;
+            }
+            else
+            {
+                gameObject.GetComponent<ChaseAndThrow>().enabled = false;
+            }
             // Tell the score manager to add score
             ScoreManager.Instance.addScore(baseScoreValue);
             // start the death animation
