@@ -5,58 +5,38 @@ using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
 
-    /// <summary>
-    /// MUST BE ASSIGNED TO WAVE NOTIFIER PREFAB
-    /// </summary>
+    // MUST BE ASSIGNED TO WAVE NOTIFIER PREFAB
     public GameObject waveNotifier;
-
-    /// <summary>
-    /// MUST BE ASSIGNED TO THE ENEMY PREFAB
-    /// </summary>
+    // MUST BE ASSIGNED TO THE ENEMY PREFAB
     public GameObject enemy;
-
-    /// <summary>
-    /// The duration that a new wave notifier is displayed for
-    /// </summary>
+    // The duration that a new wave notifier is displayed for
     public float waveNotifierDisplayTime;
-
-    /// <summary>
-    /// Used to keep track of how many monsters spawn on the first wave and how many are spawning on the current wave
-    /// </summary>
+    // Used to keep track of how many monsters spawn on the first wave and how many are spawning on the current wave
     public float spawnNumber;
-
-    /// <summary>
-    /// Used to assign the rate of growth in spawn number of minions per round
-    /// </summary>
+    // Used to assign the rate of growth in spawn number of minions per round
     public float spawnGrowthRate;
-
-    /// <summary>
-    /// Used to keep track of the delay between monster spawns in a given wave and assign the spawn rate for the first wave.
-    /// </summary>
+    // Used to keep track of the delay between monster spawns in a given wave and assign the spawn rate for the first wave.
     public float spawnDelay;
-
-    /// <summary>
-    /// Used to assign the rate at which the spawnDelay decreases each wave
-    /// </summary>
+    // Used to assign the rate at which the spawnDelay decreases each wave
     public float spawnDelayDecay;
-
-    /// <summary>
-    /// The current wave of enemies you are on
-    /// </summary>
+    // The current wave of enemies you are on
     public int currentWave { get; private set; }
 
 
     private List<GameObject> enemies = new List<GameObject>();
     private bool waveSpawnDone = false;
+    private Transform[] spawnPoints;
 	
 	void Start () {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
+        spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
 	}
 	
 	
 	void Update ()
     {
+        // scan throw our list of enemies and remove null pointers (dead enemies)
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i] == null)
@@ -65,7 +45,8 @@ public class WaveManager : MonoBehaviour {
             }
         }
 
-        if (waveSpawnDone && enemies.Count == 0) // sign to start next wave
+        // If we have finished spawning enemies and there are no remaining enemies, start next wave
+        if (waveSpawnDone && enemies.Count == 0) 
         {
             waveSpawnDone = false;
             spawnNumber *= spawnGrowthRate;
@@ -75,6 +56,7 @@ public class WaveManager : MonoBehaviour {
         }
 	}
 
+    // A simple routine to display the wave number before a wave
     IEnumerator displayWaveNumber()
     {
         GameObject c = Instantiate(waveNotifier);
@@ -106,6 +88,7 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(spawnEnemies());
     }
 
+    // The main routine for spawning enemies
     IEnumerator spawnEnemies()
     {
         for (int i = 0; i < spawnNumber; i++)
@@ -113,26 +96,8 @@ public class WaveManager : MonoBehaviour {
             GameObject c = Instantiate(enemy);
             enemies.Add(c);
 
-            int spawnSide = Random.Range(0, 3);
-            if (spawnSide == 0) // top of map
-            {
-                c.transform.localPosition = new Vector2(BoardInfo.top, Random.Range(BoardInfo.left, BoardInfo.right));
-            }
-
-            else if (spawnSide == 1) // bottom of map
-            {
-                c.transform.localPosition = new Vector2(BoardInfo.bottom + 1, Random.Range(BoardInfo.left, BoardInfo.right));
-            }
-
-            else if (spawnSide == 2) // right of map
-            {
-                c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.right);
-            }
-
-            else if (spawnSide == 3) // left of map
-            {
-                c.transform.localPosition = new Vector2(Random.Range(BoardInfo.bottom, BoardInfo.top), BoardInfo.left);
-            }
+            int spawnPoint = Random.Range(0, spawnPoints.Length - 1);
+            c.transform.localPosition = spawnPoints[spawnPoint].localPosition;
 
             yield return new WaitForSeconds(spawnDelay);
         }
