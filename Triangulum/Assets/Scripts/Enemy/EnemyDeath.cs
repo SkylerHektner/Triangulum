@@ -14,6 +14,8 @@ public class EnemyDeath : MonoBehaviour {
     public AudioClip deathSound;
     // public bool to know if the enemy is a projetile throwing
     public bool projectileThrower = false;
+    // public bool to know if the enemy is an obstructor
+    public bool obstructor = false;
 
 
     // pointers to all powerup prefabs
@@ -35,13 +37,17 @@ public class EnemyDeath : MonoBehaviour {
             dead = true;
             // disable the collider and follow script so the player cannot still die to the mob
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            if (!projectileThrower)
+            if (!projectileThrower && !obstructor)
             {
                 gameObject.GetComponent<ChasePlayer>().enabled = false;
             }
-            else
+            else if(projectileThrower)
             {
                 gameObject.GetComponent<ChaseAndThrow>().enabled = false;
+            }
+            else if (obstructor)
+            {
+                gameObject.GetComponent<ObstuctorAI>().enabled = false;
             }
             // Tell the score manager to add score
             ScoreManager.Instance.addScore(baseScoreValue);

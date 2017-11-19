@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Freeze : MonoBehaviour {
 
+    // array of sprites for the freeze animation
     public Sprite[] freezeSprites;
-
+    // whether or not the enable is freezable
     public bool freezable = true;
-
+    // whether or not the freeze kills the enemy at the end of it's duration
     public bool LethalFreeze = false;
+    // whether or not the enemy is of the thrower type
+    public bool thrower = false;
+    // whether or not the enemy is of the obstructer
+    public bool obstructer = false;
 
     private GameObject s;
     private Coroutine d;
@@ -44,7 +49,18 @@ public class Freeze : MonoBehaviour {
             a.delayBetweenFrames = duration / freezeSprites.Length;
 
             // ensure we stop chasing the player while frozen
-            gameObject.GetComponent<ChasePlayer>().enabled = false;
+            if (!thrower && !obstructer)
+            {
+                gameObject.GetComponent<ChasePlayer>().enabled = false;
+            }
+            else if (thrower)
+            {
+                gameObject.GetComponent<ChaseAndThrow>().enabled = false;
+            }
+            else if (obstructer)
+            {
+                gameObject.GetComponent<ObstuctorAI>().enabled = false;
+            }
 
             // start a delay before we thaw
             d = StartCoroutine(delay(duration));
@@ -59,10 +75,25 @@ public class Freeze : MonoBehaviour {
 
     public void unFreezeEntity()
     {
+        // toggle frozen off and destroy the freeze overlay
         frozen = false;
         Destroy(s);
-        gameObject.GetComponent<ChasePlayer>().enabled = true;
+        // re-enable the relevant AI script
+        if (!thrower && !obstructer)
+        {
+            gameObject.GetComponent<ChasePlayer>().enabled = true;
+        }
+        else if (thrower)
+        {
+            gameObject.GetComponent<ChaseAndThrow>().enabled = true;
+        }
+        else if (obstructer)
+        {
+            gameObject.GetComponent<ObstuctorAI>().enabled = true;
+        }
+        // start animation again
         gameObject.GetComponent<Animate>().animating = true;
+        // if the freeze was lethal, kill the enemy
         if (LethalFreeze)
         {
             gameObject.GetComponent<EnemyDeath>().Die();

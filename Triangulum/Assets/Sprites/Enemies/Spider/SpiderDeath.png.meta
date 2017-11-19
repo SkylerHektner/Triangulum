@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: 074b31a3fc4e4c74a9ba80fea489231f
-timeCreated: 1511125556
+guid: 530c3e0e554db914fb7002d3c5171cb2
+timeCreated: 1511125188
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: LavaMonsterThrow_0
-    21300002: LavaMonsterThrow_1
-    21300004: LavaMonsterThrow_2
-    21300006: LavaMonsterThrow_3
-    21300008: LavaMonsterThrow_4
-    21300010: LavaMonsterThrow_5
-    21300012: LavaMonsterThrow_6
-    21300014: LavaMonsterThrow_7
-    21300016: LavaMonsterThrow_8
-    21300018: LavaMonsterThrow_9
-    21300020: LavaMonsterThrow_10
+    21300000: SpiderDeath_0
+    21300002: SpiderDeath_1
+    21300004: SpiderDeath_2
+    21300006: SpiderDeath_3
+    21300008: SpiderDeath_4
+    21300010: SpiderDeath_5
+    21300012: SpiderDeath_6
+    21300014: SpiderDeath_7
+    21300016: SpiderDeath_8
+    21300018: SpiderDeath_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -86,7 +85,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LavaMonsterThrow_0
+      name: SpiderDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,7 +99,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_1
+      name: SpiderDeath_1
       rect:
         serializedVersion: 2
         x: 512
@@ -114,7 +113,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_2
+      name: SpiderDeath_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -128,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_3
+      name: SpiderDeath_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -142,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_4
+      name: SpiderDeath_4
       rect:
         serializedVersion: 2
         x: 0
@@ -156,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_5
+      name: SpiderDeath_5
       rect:
         serializedVersion: 2
         x: 512
@@ -170,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_6
+      name: SpiderDeath_6
       rect:
         serializedVersion: 2
         x: 1024
@@ -184,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_7
+      name: SpiderDeath_7
       rect:
         serializedVersion: 2
         x: 1536
@@ -198,7 +197,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_8
+      name: SpiderDeath_8
       rect:
         serializedVersion: 2
         x: 0
@@ -212,24 +211,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LavaMonsterThrow_9
+      name: SpiderDeath_9
       rect:
         serializedVersion: 2
         x: 512
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LavaMonsterThrow_10
-      rect:
-        serializedVersion: 2
-        x: 1024
         y: 0
         width: 512
         height: 512

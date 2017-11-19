@@ -32,6 +32,12 @@ public class ChaseAndThrow : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
+    void OnDisable()
+    {
+        StopAllCoroutines();
+        throwing = false;
+    }
+
     void Update()
     {
         if (playerTransform != null)

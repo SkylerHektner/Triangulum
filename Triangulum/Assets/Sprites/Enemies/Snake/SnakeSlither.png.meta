@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: a67c0490ecba9f04d83a73ae7356a69c
-timeCreated: 1511041797
+timeCreated: 1511126207
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SnakeSlither_0
+    21300002: SnakeSlither_1
+    21300004: SnakeSlither_2
+    21300006: SnakeSlither_3
+    21300008: SnakeSlither_4
+    21300010: SnakeSlither_5
+    21300012: SnakeSlither_6
+    21300014: SnakeSlither_7
+    21300016: SnakeSlither_8
+    21300018: SnakeSlither_9
+    21300020: SnakeSlither_10
+    21300022: SnakeSlither_11
+    21300024: SnakeSlither_12
+    21300026: SnakeSlither_13
+    21300028: SnakeSlither_14
+    21300030: SnakeSlither_15
+    21300032: SnakeSlither_16
+    21300034: SnakeSlither_17
+    21300036: SnakeSlither_18
+    21300038: SnakeSlither_19
+    21300040: SnakeSlither_20
+    21300042: SnakeSlither_21
+    21300044: SnakeSlither_22
+    21300046: SnakeSlither_23
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,7 +63,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,9 +87,353 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SnakeSlither_0
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 3894
+        width: 91
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_1
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 3894
+        width: 89
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_2
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 3892
+        width: 83
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_3
+      rect:
+        serializedVersion: 2
+        x: 3081
+        y: 3891
+        width: 75
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 3144
+        width: 67
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_5
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 3142
+        width: 58
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_6
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 3140
+        width: 55
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_7
+      rect:
+        serializedVersion: 2
+        x: 3082
+        y: 3138
+        width: 61
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_8
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2393
+        width: 73
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_9
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 2394
+        width: 85
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_10
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 2396
+        width: 91
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_11
+      rect:
+        serializedVersion: 2
+        x: 3067
+        y: 2396
+        width: 96
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_12
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1651
+        width: 98
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_13
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 1651
+        width: 97
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_14
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1649
+        width: 91
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_15
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1649
+        width: 84
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_16
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 902
+        width: 73
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_17
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 900
+        width: 62
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_18
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 902
+        width: 55
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_19
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 903
+        width: 56
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_20
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 159
+        width: 67
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_21
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 161
+        width: 74
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_22
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 163
+        width: 83
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SnakeSlither_23
+      rect:
+        serializedVersion: 2
+        x: 3076
+        y: 163
+        width: 87
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

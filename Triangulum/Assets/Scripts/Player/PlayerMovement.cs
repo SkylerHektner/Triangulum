@@ -46,4 +46,16 @@ public class PlayerMovement : MonoBehaviour {
         transform.up = Vector3.Lerp(facing, transform.up, Time.deltaTime);
         prevPosition = transform.localPosition;
     }
+
+    public void applyTempSpeedChange(float multiplier, float duration)
+    {
+        speed *= multiplier;
+        StartCoroutine(slowTimer(duration, multiplier));
+    }
+
+    IEnumerator slowTimer(float delay, float multiplier)
+    {
+        yield return new WaitForSeconds(delay);
+        speed /= multiplier;
+    }
 }
