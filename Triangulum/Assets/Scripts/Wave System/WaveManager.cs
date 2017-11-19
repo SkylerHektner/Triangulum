@@ -7,13 +7,15 @@ public class WaveManager : MonoBehaviour {
 
     // MUST BE ASSIGNED TO WAVE NOTIFIER PREFAB
     public GameObject waveNotifier;
-    // MUST BE ASSIGNED TO THE ENEMY PREFAB
-    public GameObject enemy;
+    // array of the different enemies that can spawn in this scene
+    public GameObject[] enemies;
+    // array of the spawn ratio between enemies in the scene
+    public int[] enemySpawnRatios;
     // The duration that a new wave notifier is displayed for
     public float waveNotifierDisplayTime;
     // Used to keep track of how many monsters spawn on the first wave and how many are spawning on the current wave
     public float spawnNumber;
-    // Used to assign the rate of growth in spawn number of minions per round
+    // Used to assign the rate of growth in spawn number of monsters per round
     public float spawnGrowthRate;
     // Used to keep track of the delay between monster spawns in a given wave and assign the spawn rate for the first wave.
     public float spawnDelay;
@@ -23,11 +25,12 @@ public class WaveManager : MonoBehaviour {
     public int currentWave { get; private set; }
 
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> enemiesInScene = new List<GameObject>();
     private bool waveSpawnDone = false;
     private Transform[] spawnPoints;
 	
-	void Start () {
+	void Start ()
+    {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
         spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
@@ -36,17 +39,17 @@ public class WaveManager : MonoBehaviour {
 	
 	void Update ()
     {
-        // scan throw our list of enemies and remove null pointers (dead enemies)
-        for (int i = 0; i < enemies.Count; i++)
+        // scan through our list of enemies and remove null pointers (dead enemies)
+        for (int i = 0; i < enemiesInScene.Count; i++)
         {
-            if (enemies[i] == null)
+            if (enemiesInScene[i] == null)
             {
-                enemies.RemoveAt(i);
+                enemiesInScene.RemoveAt(i);
             }
         }
 
         // If we have finished spawning enemies and there are no remaining enemies, start next wave
-        if (waveSpawnDone && enemies.Count == 0) 
+        if (waveSpawnDone && enemiesInScene.Count == 0) 
         {
             waveSpawnDone = false;
             spawnNumber *= spawnGrowthRate;
@@ -93,8 +96,8 @@ public class WaveManager : MonoBehaviour {
     {
         for (int i = 0; i < spawnNumber; i++)
         {
-            GameObject c = Instantiate(enemy);
-            enemies.Add(c);
+            GameObject c = Instantiate(enemies[0]);
+            enemiesInScene.Add(c);
 
             int spawnPoint = Random.Range(0, spawnPoints.Length - 1);
             c.transform.localPosition = spawnPoints[spawnPoint].localPosition;
