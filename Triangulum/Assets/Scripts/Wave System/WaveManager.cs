@@ -94,15 +94,32 @@ public class WaveManager : MonoBehaviour {
     // The main routine for spawning enemies
     IEnumerator spawnEnemies()
     {
+        int spawnIndex = 0;
+        int spawnCounter = 0;
+
         for (int i = 0; i < spawnNumber; i++)
         {
-            GameObject c = Instantiate(enemies[0]);
+            GameObject c = Instantiate(enemies[spawnIndex]);
             enemiesInScene.Add(c);
 
             int spawnPoint = Random.Range(0, spawnPoints.Length - 1);
             c.transform.localPosition = spawnPoints[spawnPoint].localPosition;
 
             yield return new WaitForSeconds(spawnDelay);
+
+            // increment spawn counter, and check if the ratio at the current index is satisfied
+            spawnCounter += 1;
+            if (spawnCounter == enemySpawnRatios[spawnIndex])
+            {
+                // if the ratio is satisfied, move the index up one and reset the spawn counter
+                spawnCounter = 0;
+                spawnIndex += 1;
+            }
+            // if the index is beyond the enemies length, reset the index and begin at the beginning of the ratio
+            if (spawnIndex == enemies.Length)
+            {
+                spawnIndex = 0;
+            }
         }
 
         waveSpawnDone = true;
