@@ -30,15 +30,23 @@ public class TeleportAbility : MonoBehaviour {
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
-        cooldown = upgradeLoader.data.Teleport_Cooldown;
-        lethal = upgradeLoader.data.Teleport_Lethal;
-        lethalRadius = upgradeLoader.data.Teleport_LethalRadius;
-        maxCharges = upgradeLoader.data.Teleport_Charges;
-        cooldownCharge = 0;
-        charges = maxCharges;
-        HUDManager.Instance.setTeleportSliderValue(cooldownCharge / cooldown);
-        HUDManager.Instance.setTeleportBatteryIcon(charges);
+        if(!upgradeLoader.data.Teleport_CanTeleport)
+        {
+            HUDManager.Instance.disableBatteryIcon();
+            this.enabled = false;
+        }
+        else
+        {
+            body = GetComponent<Rigidbody2D>();
+            cooldown = upgradeLoader.data.Teleport_Cooldown;
+            lethal = upgradeLoader.data.Teleport_Lethal;
+            lethalRadius = upgradeLoader.data.Teleport_LethalRadius;
+            maxCharges = upgradeLoader.data.Teleport_Charges;
+            cooldownCharge = 0;
+            charges = maxCharges;
+            HUDManager.Instance.setTeleportSliderValue(cooldownCharge / cooldown);
+            HUDManager.Instance.setTeleportBatteryIcon(charges);
+        }
     }
 
     public void Update()

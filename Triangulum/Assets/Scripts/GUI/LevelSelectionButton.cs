@@ -11,6 +11,6 @@ public class LevelSelectionButton : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        gameObject.GetComponent<Button>().interactable = upgradeLoader.data.highestWave[levelToUnlock] >= waveToUnlock;
+        gameObject.GetComponent<Button>().interactable = upgradeLoader.data.highestWave[levelToUnlock - 1] >= waveToUnlock;
     }
 }

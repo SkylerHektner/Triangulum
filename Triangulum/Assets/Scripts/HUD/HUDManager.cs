@@ -128,4 +128,10 @@ public class HUDManager : MonoBehaviour {
         }
         teleportBatteryImage.sprite = teleportBatteries[numCharges];
     }
+
+    public void disableBatteryIcon()
+    {
+        teleportSlider.gameObject.SetActive(false);
+        teleportBatteryImage.gameObject.SetActive(false);
+    }
 }

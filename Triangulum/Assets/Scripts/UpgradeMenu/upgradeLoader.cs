@@ -233,7 +233,7 @@ public class UpgradeData
     public float Player_Speed = 50;
     public float Player_Acceleration = 500;
     // Credits
-    public int Player_TaxPayerDollars = 1000000;
+    public int Player_TaxPayerDollars = 0;
 
     // ABILITIES
     // teleport

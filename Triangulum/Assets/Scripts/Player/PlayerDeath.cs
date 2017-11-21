@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour {
 
@@ -70,7 +71,8 @@ public class PlayerDeath : MonoBehaviour {
         gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
         // bring up death canvas
-        Instantiate(deathCanvas);
+        Instantiate(deathCanvas).transform.Find("WaveText").GetComponent<Text>().text = "Wave: " + GameObject.Find("WaveManager").GetComponent<WaveManager>().currentWave;
+
 
         // disable wave manager
         if (disableWaveManagerOnDeath)

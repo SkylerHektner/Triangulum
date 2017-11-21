@@ -36,8 +36,6 @@ public class WaveManager : MonoBehaviour {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
         spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
-        upgradeLoader.data.lastLevelPlayed = currentLevel;
-        upgradeLoader.Instance.SaveData();
 	}
 	
 	
@@ -55,6 +53,14 @@ public class WaveManager : MonoBehaviour {
         // If we have finished spawning enemies and there are no remaining enemies, start next wave
         if (waveSpawnDone && enemiesInScene.Count == 0) 
         {
+            // if this is our new highest wave on this level, record it!
+            if (upgradeLoader.data.highestWave[currentLevel - 1] < currentWave)
+            {
+                upgradeLoader.data.highestWave[currentLevel - 1] = currentWave;
+                upgradeLoader.Instance.SaveData();
+            }
+
+            // set up for the next even harder wave
             waveSpawnDone = false;
             spawnNumber *= spawnGrowthRate;
             spawnDelay *= spawnDelayDecay;
@@ -127,11 +133,5 @@ public class WaveManager : MonoBehaviour {
         }
 
         waveSpawnDone = true;
-
-        if (upgradeLoader.data.highestWave[currentWave - 1] < currentWave)
-        {
-            upgradeLoader.data.highestWave[currentWave - 1] = currentWave;
-            upgradeLoader.Instance.SaveData();
-        }
     }
 }
