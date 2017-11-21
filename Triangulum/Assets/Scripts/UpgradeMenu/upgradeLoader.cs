@@ -233,14 +233,14 @@ public class UpgradeData
     public float Player_Speed = 50;
     public float Player_Acceleration = 500;
     // Credits
-    public int Player_TaxPayerDollars = 0;
+    public int Player_TaxPayerDollars = 1000000;
 
     // ABILITIES
     // teleport
     public bool Teleport_CanTeleport = false;
     public float Teleport_Cooldown = 10;
     public bool Teleport_Lethal = false;
-    public float Teleport_LethalRadius = 10;
+    public float Teleport_LethalRadius = 15f;
     public int Teleport_Charges = 1;
 
     public int Teleport_UpgradeRecharge = 0;

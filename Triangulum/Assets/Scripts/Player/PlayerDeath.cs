@@ -59,10 +59,6 @@ public class PlayerDeath : MonoBehaviour {
         GameObject d = GameObject.Instantiate(deathAnim);
         d.transform.localPosition = transform.localPosition;
 
-        // Add score to money
-        upgradeLoader.data.Player_TaxPayerDollars += ScoreManager.Instance.score;
-        upgradeLoader.Instance.SaveData();
-
         // Disable the player 
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.GetComponentInChildren<BeaconManager>().enabled = false;
