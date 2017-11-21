@@ -48,7 +48,7 @@ public class upgradeLoader : MonoBehaviour {
         }
         catch
         {
-            Debug.LogError("You don't have a player in the scene you dummy!");
+            
         }
 	}
 
@@ -239,4 +239,8 @@ public class UpgradeData
 
     public int Teleport_UpgradeRecharge = 0;
     public int Teleport_UpgradeBattery = 0;
+
+    // CHARACTER PROGRESS INFO
+    public List<int> highestWave = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int lastLevelPlayed = 1;
 }

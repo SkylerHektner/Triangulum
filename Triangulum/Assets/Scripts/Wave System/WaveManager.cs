@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour {
     public float spawnDelayDecay;
     // The current wave of enemies you are on
     public int currentWave { get; private set; }
+    // The level this waveManager is inside of
+    public int currentLevel = 1;
 
 
     private List<GameObject> enemiesInScene = new List<GameObject>();
@@ -34,6 +36,8 @@ public class WaveManager : MonoBehaviour {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
         spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
+        upgradeLoader.data.lastLevelPlayed = currentLevel;
+        upgradeLoader.Instance.SaveData();
 	}
 	
 	
@@ -123,5 +127,11 @@ public class WaveManager : MonoBehaviour {
         }
 
         waveSpawnDone = true;
+
+        if (upgradeLoader.data.highestWave[currentWave - 1] < currentWave)
+        {
+            upgradeLoader.data.highestWave[currentWave - 1] = currentWave;
+            upgradeLoader.Instance.SaveData();
+        }
     }
 }
