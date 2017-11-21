@@ -64,6 +64,7 @@ public class TeleportAbility : MonoBehaviour {
             charges += 1;
             cooldownCharge = 0;
             HUDManager.Instance.setTeleportBatteryIcon(charges);
+            HUDManager.Instance.setTeleportSliderValue(0);
         }
 
         // If the player wants to teleport, has teleport unlocked, and has charges, then teleport

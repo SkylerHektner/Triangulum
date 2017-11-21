@@ -48,6 +48,9 @@ public class ShieldPowerUp : Powerup
         CircleCollider2D col2 = shield.GetComponent<CircleCollider2D>();
         Physics2D.IgnoreCollision(col1, col2, true);
 
+        // make the player invincible
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().invincible = true;
+
         // play the shield sound
         gameObject.GetComponent<AudioSource>().PlayOneShot(ShieldSound);
 
@@ -62,5 +65,8 @@ public class ShieldPowerUp : Powerup
         shield.GetComponent<Shield>().RequestEnd();
         removeHUDTimer();
         base.OnEnd();
+
+        // make the player not invincible
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().invincible = false;
     }
 }

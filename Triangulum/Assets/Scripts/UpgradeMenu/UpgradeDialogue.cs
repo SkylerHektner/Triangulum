@@ -25,8 +25,7 @@ public class UpgradeDialogue : MonoBehaviour {
     void OnEnable()
     {
         transform.Find("NameText").GetComponent<Text>().text = nameText;
-        transform.Find("DescriptionText").GetComponent<Text>().text = descriptionText;
-        transform.Find("PurchaseButton").GetChild(0).GetComponent<Text>().text = "Unlock(" + cost.ToString() + ")";
+        transform.Find("DescriptionText").GetComponent<Text>().text = descriptionText + "\nCost: " + cost.ToString();
 
         transform.Find("PurchaseButton").GetComponent<Button>().onClick.RemoveAllListeners();
         transform.Find("PurchaseButton").GetComponent<Button>().onClick.AddListener(purchaseButtonMethod);

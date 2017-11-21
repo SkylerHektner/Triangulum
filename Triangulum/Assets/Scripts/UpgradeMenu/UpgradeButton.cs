@@ -60,6 +60,7 @@ public class UpgradeButton : MonoBehaviour {
         if (!CheckUnlocked())
         {
             GameObject dio = UpgradeDialogue.instance.gameObject;
+            dio.SetActive(false);
             UpgradeDialogue s = dio.GetComponent<UpgradeDialogue>();
             s.nameText = upgradeName;
             s.descriptionText = descriptionText;

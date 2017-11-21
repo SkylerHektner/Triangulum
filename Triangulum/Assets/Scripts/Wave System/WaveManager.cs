@@ -36,6 +36,7 @@ public class WaveManager : MonoBehaviour {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
         spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
+        upgradeLoader.data.lastLevelPlayed = currentLevel;
 	}
 	
 	
