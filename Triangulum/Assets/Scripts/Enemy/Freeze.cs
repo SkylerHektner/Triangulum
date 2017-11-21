@@ -56,10 +56,12 @@ public class Freeze : MonoBehaviour {
             else if (thrower)
             {
                 gameObject.GetComponent<ChaseAndThrow>().enabled = false;
+                s.transform.localScale = new Vector3(2, 2, 1);
             }
             else if (obstructer)
             {
                 gameObject.GetComponent<ObstuctorAI>().enabled = false;
+                s.transform.localScale = new Vector3(2, 2, 1);
             }
 
             // start a delay before we thaw
