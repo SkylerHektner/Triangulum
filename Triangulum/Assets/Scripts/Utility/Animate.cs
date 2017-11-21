@@ -26,8 +26,13 @@ public class Animate : MonoBehaviour {
     void OnEnable()
     {
         r = gameObject.GetComponent<SpriteRenderer>();
-        r.sprite = frames[0];
-        StartCoroutine(animate());
+        try
+        {
+            r.sprite = frames[0];
+            StartCoroutine(animate());
+        }
+        catch { }
+        
     }
 	
 	IEnumerator animate()

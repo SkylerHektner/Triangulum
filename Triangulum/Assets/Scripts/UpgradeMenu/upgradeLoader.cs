@@ -52,6 +52,12 @@ public class upgradeLoader : MonoBehaviour {
         }
 	}
 
+    public void resetPlayerData()
+    {
+        data = new UpgradeData();
+        SaveData();
+    }
+
     public void SaveData()
     {
         jsonString = JsonUtility.ToJson(data);

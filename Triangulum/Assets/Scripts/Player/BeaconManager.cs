@@ -5,23 +5,17 @@ using UnityEngine;
 
 public class BeaconManager : MonoBehaviour {
 
-    /// <summary>
-    /// must be assigned to the beacon prefab
-    /// </summary>
+    // must be assigned to the beacon prefab
     public GameObject beacon;
-
-    /// <summary>
-    /// must be assigned to the detonateCollision prefab
-    /// </summary>
+    // must be assigned to the detonateCollision prefab
     public GameObject detonateCollision;
-
-    /// <summary>
-    /// activated by the lasso power up to allow right click to place beacons at the mouse click position
-    /// </summary>
+    // activated by the lasso power up to allow right click to place beacons at the mouse click position
     public bool lassoModeActive = false;
-
+    // whether or not instant loop is currently active
     public bool lassoInstantLoop = false;
+    // range of instant loop
     public float instantLoopRange = 60f;
+    // angle of instant loop spread
     public float instantLoopRadialDeviance = 30f;
 
     // adjust how we draw the lines
@@ -30,7 +24,11 @@ public class BeaconManager : MonoBehaviour {
     public float distBetweenDeviance = 1f;
     public float devianceRange = 1f;
 
+    // the units of space inside the triangle compared to the particles emitted
     public float unitToParticleRatio = 2;
+
+    // the sound when the triangle completes
+    public AudioClip detonationSound;
 
     // privates
     // list used to keep track of beacons on map
@@ -219,6 +217,9 @@ public class BeaconManager : MonoBehaviour {
 
         // reset the lineRenderer
         lineRenderer.positionCount = 1;
+
+        // play sound
+        gameObject.GetComponent<AudioSource>().PlayOneShot(detonationSound, .3f);
     }
 
     // used by the Instant Loop Powerup

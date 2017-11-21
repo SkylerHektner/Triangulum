@@ -24,7 +24,6 @@ public class IcePowerUp : Powerup
         r.maxRadius = freezeRadius;
         r.timeToMaxRadius = freezeExpansionTime;
         r.LethalFreeze = LethalFreeze;
-        setHUDTimer(freezeDuration);
         base.OnUse();
     }
 
