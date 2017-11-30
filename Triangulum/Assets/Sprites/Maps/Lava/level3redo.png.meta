@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: abcb6faafb88e704db0ec00614ce3060
-timeCreated: 1512015946
+guid: 4b8f5db5c44bff649a3e8d13162b1302
+timeCreated: 1512023787
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: level3redo 2_0
+    21300000: level3redo 1_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level3redo 2_0
+      name: level3redo 1_0
       rect:
         serializedVersion: 2
         x: 9
