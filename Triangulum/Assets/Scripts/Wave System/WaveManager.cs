@@ -29,13 +29,24 @@ public class WaveManager : MonoBehaviour {
 
     private List<GameObject> enemiesInScene = new List<GameObject>();
     private bool waveSpawnDone = false;
-    private Transform[] spawnPoints;
+    private List<Transform> spawnPoints;
 	
 	void Start ()
     {
         currentWave = 1;
         StartCoroutine(displayWaveNumber());
-        spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
+
+        // populate the spawn points list and remove the spawn point at 0,0,0
+        spawnPoints = new List<Transform>(transform.Find("SpawnPoints").GetComponentsInChildren<Transform>());
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i].localPosition == Vector3.zero)
+            {
+                spawnPoints.RemoveAt(i);
+                break;
+            }
+        }
+
         upgradeLoader.data.lastLevelPlayed = currentLevel;
 	}
 	
@@ -113,7 +124,7 @@ public class WaveManager : MonoBehaviour {
             GameObject c = Instantiate(enemies[spawnIndex]);
             enemiesInScene.Add(c);
 
-            int spawnPoint = Random.Range(0, spawnPoints.Length - 1);
+            int spawnPoint = Random.Range(0, spawnPoints.Count - 1);
             c.transform.localPosition = spawnPoints[spawnPoint].localPosition;
 
             yield return new WaitForSeconds(spawnDelay);
