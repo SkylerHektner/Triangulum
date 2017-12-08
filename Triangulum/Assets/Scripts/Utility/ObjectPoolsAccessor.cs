@@ -6,7 +6,9 @@ public class ObjectPoolsAccessor : MonoBehaviour {
 
     public static ObjectPoolsAccessor instance;
 
-    public ObjectPool laserPool; 
+    public ObjectPool laserPool;
+
+    public ObjectPool ScoreNotifierPool;
 
 	// Use this for initialization
 	void Start () {
