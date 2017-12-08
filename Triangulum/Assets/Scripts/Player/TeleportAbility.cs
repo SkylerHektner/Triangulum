@@ -85,7 +85,6 @@ public class TeleportAbility : MonoBehaviour {
             {
                 if (hitInfo[i].collider != null)
                 {
-                    Debug.Log(hitInfo[i].collider.tag);
                     if (hitInfo[i].collider.tag == "Untagged")
                     {
                         point = transform.localPosition + (new Vector3(hitInfo[i].point.x, hitInfo[i].point.y, 0) - transform.localPosition) * .9f;
