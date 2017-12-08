@@ -78,6 +78,9 @@ public class WaveManager : MonoBehaviour {
             spawnDelay *= spawnDelayDecay;
             currentWave++;
             StartCoroutine(displayWaveNumber());
+
+            // tell the HUD to display the new current wave
+            HUDManager.Instance.setCurrentWaveText(currentWave);
         }
 	}
 
