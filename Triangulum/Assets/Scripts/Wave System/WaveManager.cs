@@ -25,17 +25,30 @@ public class WaveManager : MonoBehaviour {
     public int currentWave { get; private set; }
     // The level this waveManager is inside of
     public int currentLevel = 1;
+    // the target wave to unlock the next level
+    public int waveToUnlockNextLevel = 99999;
 
 
     private List<GameObject> enemiesInScene = new List<GameObject>();
     private bool waveSpawnDone = false;
-    private Transform[] spawnPoints;
+    private List<Transform> spawnPoints;
 	
 	void Start ()
     {
         currentWave = 1;
-        StartCoroutine(displayWaveNumber());
-        spawnPoints = transform.Find("SpawnPoints").GetComponentsInChildren<Transform>();
+        StartCoroutine(displayWaveNumber(false));
+
+        // populate the spawn points list and remove the spawn point at 0,0,0
+        spawnPoints = new List<Transform>(transform.Find("SpawnPoints").GetComponentsInChildren<Transform>());
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i].localPosition == Vector3.zero)
+            {
+                spawnPoints.RemoveAt(i);
+                break;
+            }
+        }
+
         upgradeLoader.data.lastLevelPlayed = currentLevel;
 	}
 	
@@ -54,11 +67,13 @@ public class WaveManager : MonoBehaviour {
         // If we have finished spawning enemies and there are no remaining enemies, start next wave
         if (waveSpawnDone && enemiesInScene.Count == 0) 
         {
+            bool displayLevelUnlocked = false;
             // if this is our new highest wave on this level, record it!
             if (upgradeLoader.data.highestWave[currentLevel - 1] < currentWave)
             {
                 upgradeLoader.data.highestWave[currentLevel - 1] = currentWave;
                 upgradeLoader.Instance.SaveData();
+                displayLevelUnlocked = currentWave == waveToUnlockNextLevel;
             }
 
             // set up for the next even harder wave
@@ -66,15 +81,42 @@ public class WaveManager : MonoBehaviour {
             spawnNumber *= spawnGrowthRate;
             spawnDelay *= spawnDelayDecay;
             currentWave++;
-            StartCoroutine(displayWaveNumber());
+            StartCoroutine(displayWaveNumber(displayLevelUnlocked));
+
+            // tell the HUD to display the new current wave
+            HUDManager.Instance.setCurrentWaveText(currentWave);
         }
 	}
 
     // A simple routine to display the wave number before a wave
-    IEnumerator displayWaveNumber()
+    IEnumerator displayWaveNumber(bool displayLevelUnlocked)
     {
         GameObject c = Instantiate(waveNotifier);
         Text t = c.GetComponentInChildren<Text>();
+
+        if (displayLevelUnlocked)
+        {
+            Color colorUnlocked = t.color;
+            colorUnlocked.a = 0;
+            t.color = colorUnlocked;
+            t.text = "Level " + (currentLevel + 1).ToString() + " Unlocked";
+
+            float delayTimeUnlocked = waveNotifierDisplayTime / 200;
+
+            for (float i = 0; i < 100; i++)
+            {
+                colorUnlocked.a = i / 100;
+                t.color = colorUnlocked;
+                yield return new WaitForSeconds(delayTimeUnlocked);
+            }
+
+            for (float i = 100; i >= 0; i--)
+            {
+                colorUnlocked.a = i / 100;
+                t.color = colorUnlocked;
+                yield return new WaitForSeconds(delayTimeUnlocked);
+            }
+        }
 
         Color color = t.color;
         color.a = 0;
@@ -113,7 +155,7 @@ public class WaveManager : MonoBehaviour {
             GameObject c = Instantiate(enemies[spawnIndex]);
             enemiesInScene.Add(c);
 
-            int spawnPoint = Random.Range(0, spawnPoints.Length - 1);
+            int spawnPoint = Random.Range(0, spawnPoints.Count - 1);
             c.transform.localPosition = spawnPoints[spawnPoint].localPosition;
 
             yield return new WaitForSeconds(spawnDelay);

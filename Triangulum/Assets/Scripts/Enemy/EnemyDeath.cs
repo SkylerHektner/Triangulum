@@ -50,13 +50,21 @@ public class EnemyDeath : MonoBehaviour {
                 gameObject.GetComponent<ObstuctorAI>().enabled = false;
             }
             // Tell the score manager to add score
-            ScoreManager.Instance.addScore(baseScoreValue);
+            int scoreGained = ScoreManager.Instance.addScore(baseScoreValue);
             // start the death animation
             StartCoroutine(DeathCoRoutine());
             //find and stop the animator
             gameObject.GetComponent<Animate>().animating = false;
             //play death sound
             gameObject.GetComponent<AudioSource>().PlayOneShot(deathSound);
+
+            // show the score popup animation
+            GameObject scorePop;
+            Vector3 position = transform.localPosition;
+            position.z = -1;
+            ObjectPoolsAccessor.instance.ScoreNotifierPool.requestObject(position,
+                Quaternion.Euler(new Vector3(0, 0, 0)), out scorePop);
+            scorePop.GetComponent<EnemyScoreNotifier>().setScoreValue(scoreGained);
         }
     }
 

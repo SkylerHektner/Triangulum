@@ -70,9 +70,29 @@ public class TeleportAbility : MonoBehaviour {
         // If the player wants to teleport, has teleport unlocked, and has charges, then teleport
         if (charges > 0 && upgradeLoader.data.Teleport_CanTeleport && Input.GetButtonDown("Teleport")) 
         {
+
+
             charges--;
             HUDManager.Instance.setTeleportBatteryIcon(charges);
+
+            // we use a raycast so the player cannot exit the map/get where they should not
             Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 path = new Vector3(point.x, point.y, 0) - transform.localPosition;
+            RaycastHit2D[] hitInfo = new RaycastHit2D[10];
+            ContactFilter2D filter = new ContactFilter2D();
+            Physics2D.Raycast(transform.localPosition, path, filter, hitInfo, path.magnitude);
+            for (int i = 0; i < hitInfo.Length; i++)
+            {
+                if (hitInfo[i].collider != null)
+                {
+                    if (hitInfo[i].collider.tag == "Untagged")
+                    {
+                        point = transform.localPosition + (new Vector3(hitInfo[i].point.x, hitInfo[i].point.y, 0) - transform.localPosition) * .9f;
+                        break;
+                    }
+                }
+            }
+
             body.MovePosition(point);
             if (lethal)
             {

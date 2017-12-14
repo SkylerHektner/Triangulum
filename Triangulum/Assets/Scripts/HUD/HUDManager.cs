@@ -14,7 +14,7 @@ public class HUDManager : MonoBehaviour {
 
     private Text scoreText;
     private Text multiplierText;
-    private Text moneyText;
+    private Text currentWaveText;
     private List<GameObject> powerUpTimers = new List<GameObject>();
 
     private Slider teleportSlider;
@@ -26,8 +26,8 @@ public class HUDManager : MonoBehaviour {
 
         scoreText = transform.GetChild(0).Find("Score").Find("ScoreText").GetComponent<Text>();
         multiplierText = transform.GetChild(0).Find("Score").Find("MultiplierText").GetComponent<Text>();
-        moneyText = transform.GetChild(0).Find("Moneys").Find("Text").GetComponent<Text>();
-        moneyText.text = "Money: " + upgradeLoader.data.Player_TaxPayerDollars.ToString();
+        currentWaveText = transform.GetChild(0).Find("Score").Find("CurrentWaveText").GetComponent<Text>();
+        currentWaveText.text = "Current Wave: 1";
 
         teleportSlider = transform.GetChild(0).Find("Teleport").Find("Slider").gameObject.GetComponent<Slider>();
         teleportBatteryImage = transform.GetChild(0).Find("Teleport").Find("Battery Icon").gameObject.GetComponent<Image>();
@@ -104,9 +104,9 @@ public class HUDManager : MonoBehaviour {
         multiplierText.text = "x" + f.ToString();
     }
 
-    public void setMoney(int m)
+    public void setCurrentWaveText(int m)
     {
-        moneyText.text = m.ToString();
+        currentWaveText.text = "Current Wave: " + m.ToString();
     }
 
     public void setTeleportSliderValue(float v)

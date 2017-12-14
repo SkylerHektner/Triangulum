@@ -15,9 +15,9 @@ public class ObjectPool : MonoBehaviour {
         for (int i = 0; i < poolSize; i++)
         {
             GameObject g = GameObject.Instantiate(template);
-            g.transform.parent = transform;
+            g.transform.SetParent(transform);
+            g.AddComponent<PooledObject>().parentPool = this;
             g.SetActive(false);
-            pool.Push(g);
         }
     }
 
@@ -27,10 +27,6 @@ public class ObjectPool : MonoBehaviour {
         g.SetActive(true);
         g.transform.localPosition = startPosition;
         g.transform.rotation = rotation;
-        if (g.GetComponent<PooledObject>() == null)
-        {
-            g.AddComponent<PooledObject>().parentPool = this;
-        }
     }
 
     public void returnObject(GameObject g)

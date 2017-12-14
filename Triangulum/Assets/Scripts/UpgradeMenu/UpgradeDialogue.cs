@@ -10,6 +10,7 @@ public class UpgradeDialogue : MonoBehaviour {
     public string descriptionText;
     public UpgradeButton caller;
     public int cost;
+    public AudioClip succesfullUpgradeSound;
 
     public static UpgradeDialogue instance;
 
@@ -40,6 +41,7 @@ public class UpgradeDialogue : MonoBehaviour {
     {
         if (caller.UpgradeRequest())
         {
+            GameObject.Find("Upgrades_Canvas").GetComponent<AudioSource>().PlayOneShot(succesfullUpgradeSound);
             gameObject.SetActive(false);
         }
     }

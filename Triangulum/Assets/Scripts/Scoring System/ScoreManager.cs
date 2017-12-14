@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour {
     // the value added to the multiplier each kill
     public float multiplierGrowthRate = .1f;
 
-    private float multiplier = 1;
+    public float multiplier = 1;
     public int score = 0;
 
 
