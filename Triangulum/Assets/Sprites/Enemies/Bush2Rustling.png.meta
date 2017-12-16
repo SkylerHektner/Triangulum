@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6a5646cb169519f419d172551cbc7f99
-timeCreated: 1513393617
+timeCreated: 1513448848
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -97,10 +97,10 @@ TextureImporter:
       name: Bush2Rustling_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 616
-        width: 372
-        height: 325
+        x: 0
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,10 +111,10 @@ TextureImporter:
       name: Bush2Rustling_1
       rect:
         serializedVersion: 2
-        x: 577
-        y: 613
-        width: 367
-        height: 335
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,10 +125,10 @@ TextureImporter:
       name: Bush2Rustling_2
       rect:
         serializedVersion: 2
-        x: 76
-        y: 101
-        width: 353
-        height: 343
+        x: 2
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2145996ec0dd48742825e3cb4ffe77cc
-timeCreated: 1513393603
+timeCreated: 1513448861
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 33
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -97,10 +97,10 @@ TextureImporter:
       name: Bush1Rustling_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 545
-        width: 469
-        height: 447
+        x: 0
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,10 +111,10 @@ TextureImporter:
       name: Bush1Rustling_1
       rect:
         serializedVersion: 2
-        x: 523
-        y: 548
-        width: 476
-        height: 447
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,10 +125,10 @@ TextureImporter:
       name: Bush1Rustling_2
       rect:
         serializedVersion: 2
-        x: 11
-        y: 34
-        width: 470
-        height: 446
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
