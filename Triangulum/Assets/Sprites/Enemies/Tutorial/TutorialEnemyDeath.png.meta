@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 6c19b66c493b88c45a501764cb73fd9c
+timeCreated: 1513404282
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TutorialEnemyDeath_0
+    21300002: TutorialEnemyDeath_1
+    21300004: TutorialEnemyDeath_2
+    21300006: TutorialEnemyDeath_3
+    21300008: TutorialEnemyDeath_4
+    21300010: TutorialEnemyDeath_5
+    21300012: TutorialEnemyDeath_6
+    21300014: TutorialEnemyDeath_7
+    21300016: TutorialEnemyDeath_8
+    21300018: TutorialEnemyDeath_9
+    21300020: TutorialEnemyDeath_10
+    21300022: TutorialEnemyDeath_11
+    21300024: TutorialEnemyDeath_12
+    21300026: TutorialEnemyDeath_13
+    21300028: TutorialEnemyDeath_14
+    21300030: TutorialEnemyDeath_15
+    21300032: TutorialEnemyDeath_16
+    21300034: TutorialEnemyDeath_17
+    21300036: TutorialEnemyDeath_18
+    21300038: TutorialEnemyDeath_19
+    21300040: TutorialEnemyDeath_20
+    21300042: TutorialEnemyDeath_21
+    21300044: TutorialEnemyDeath_94
+    21300046: TutorialEnemyDeath_95
+    21300048: TutorialEnemyDeath_96
+    21300050: TutorialEnemyDeath_98
+    21300052: TutorialEnemyDeath_22
+    21300054: TutorialEnemyDeath_23
+    21300056: TutorialEnemyDeath_24
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 2100
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 2100
+        width: 405
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_2
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 2100
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_3
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 2100
+        width: 405
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_4
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 2100
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_5
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1588
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_6
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1588
+        width: 403
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_7
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1588
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_8
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 1588
+        width: 405
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_9
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 1588
+        width: 401
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_10
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1075
+        width: 402
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_11
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1075
+        width: 405
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_12
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1077
+        width: 402
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_13
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 1075
+        width: 405
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_14
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 1075
+        width: 402
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_15
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 564
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_16
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 564
+        width: 403
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_17
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 564
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_18
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 564
+        width: 403
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_19
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 564
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_20
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 50
+        width: 399
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_21
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 36
+        width: 418
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_94
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 82
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_95
+      rect:
+        serializedVersion: 2
+        x: 2203
+        y: 70
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_96
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 66
+        width: 35
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_98
+      rect:
+        serializedVersion: 2
+        x: 2258
+        y: 57
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_22
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 39
+        width: 403
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_23
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 58
+        width: 423
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialEnemyDeath_24
+      rect:
+        serializedVersion: 2
+        x: 2102
+        y: 48
+        width: 426
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
