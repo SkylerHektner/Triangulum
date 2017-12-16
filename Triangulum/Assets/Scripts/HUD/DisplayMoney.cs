@@ -13,6 +13,6 @@ public class DisplayMoney : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        t.text = "Money: " + upgradeLoader.data.Player_TaxPayerDollars.ToString();
+        t.text = "Tax Payer Dollars: " + upgradeLoader.data.Player_TaxPayerDollars.ToString();
 	}
 }
